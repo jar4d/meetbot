@@ -51,7 +51,7 @@ app.get('/*', function(req, res) {
     //var databaseSearch = Places.find();
 
     var jsonResponse = [];
-    jsonResponse.push({ "text": "Here's just the place" + databaseSearch });
+    jsonResponse.push({ "text": "Here's just the place" });
     res.send(jsonResponse);
 
 
