@@ -47,12 +47,12 @@ app.get('/*', function(req, res) {
 	console.log('New query...'); 
     console.log('venueType: ', data.venueType);   
 	console.log('longitude: ', data.longitude);   
-	console.log('latitude: ', data.longitude);  
+	console.log('latitude: ', data.latitude);  
 
     //var databaseSearch = Places.find();
 
     var jsonResponse = [];
-    jsonResponse.push({ "text": "Hi. " + (Math.random() * 5 + 1).toFixed(0) + " is a lucky number..." });
+    jsonResponse.push({ "url": "https://www.google.com/maps/dir/" + data.latitude"," + data.longitude + "/48.179926,27.28875860"});
     res.send(jsonResponse);
 
     //https://www.google.com/maps/dir/{{latitude}},{{longitude}}/48.179926,27.28875860
