@@ -1,0 +1,24 @@
+{
+  "name": "meetbot",
+  "version": "1.0.0",
+  "description": "",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/jar4d/meetbot.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/jar4d/meetbot/issues"
+  },
+  "homepage": "https://github.com/jar4d/meetbot#readme",
+  "dependencies": {
+    "express": "^4.16.2"
+  }
+}
