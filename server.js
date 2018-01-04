@@ -48,7 +48,7 @@ app.get('/*', function(req, res) {
 	console.log('longitude: ', data.longitude);   
 	console.log('latitude: ', data.longitude);  
 
-    var databaseSearch = Places.find();
+    //var databaseSearch = Places.find();
 
     var jsonResponse = [];
     jsonResponse.push({ "text": "Here's just the place" + databaseSearch });
