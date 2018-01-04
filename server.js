@@ -44,17 +44,18 @@ app.get('/*', function(req, res) {
 
 	var data = req.query; 
 	//console.log('REQ Item: ', p);   // shows all data...
-	console.log('venueType: ', data.venueType);   
+	console.log('New query...'); 
+    console.log('venueType: ', data.venueType);   
 	console.log('longitude: ', data.longitude);   
 	console.log('latitude: ', data.longitude);  
 
     //var databaseSearch = Places.find();
 
     var jsonResponse = [];
-    jsonResponse.push({ "text": "Here's just the place" });
+    jsonResponse.push({ "text": "Hi. " + (Math.random() * 5 + 1).toFixed(0) + " is a lucky number..." });
     res.send(jsonResponse);
 
-
+    //https://www.google.com/maps/dir/{{latitude}},{{longitude}}/48.179926,27.28875860
 });
 
 
