@@ -1,5 +1,22 @@
-var express = require('express');
-var app = express();
+import { Meteor } from 'meteor/meteor';  
+import express from 'express';
+
+const app = express();
+
+
+export function setupApi() {  
+
+app.listen(80, function() {
+    console.log('Chatfuel Bot-Server listening on port 80...');
+});
+
+
+  WebApp.connectHandlers.use(app); //mount into Meteor
+}
+
+
+
+
 
 /*
 
@@ -36,9 +53,7 @@ var app = express();
 */
 
 
-app.listen(80, function() {
-    console.log('Chatfuel Bot-Server listening on port 80...');
-});
+
 
 app.get('/*', function(req, res) {
 
@@ -94,7 +109,7 @@ app.get('/*', function(req, res) {
       ]
     }
     );
-    
+
     res.send(jsonResponse);
 
 });

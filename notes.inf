@@ -1,0 +1,8 @@
+Uses MUPX
+Syncs to GitHub
+
+Add express
+meteor npm install --save express
+meteor npm install --save meteor-node-stubs
+meteor npm install --save babel-runtime
+
