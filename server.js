@@ -109,7 +109,7 @@ app.get('/*', function(req, res) {
     },
 
 
-
+{
     "attachment": {
       "type": "template",
       "payload": {
@@ -121,6 +121,7 @@ app.get('/*', function(req, res) {
             }
          ]
       }
+    }
     },    
   
 
