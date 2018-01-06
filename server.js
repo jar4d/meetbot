@@ -67,18 +67,34 @@ app.get('/*', function(req, res) {
    {"text": "Welcome to the Chatfuel Rockets!"},
    {"text": "What are you up to?"},
     
-   
+   {
+      "attachment": {
+        "type": "image",
+        "payload": {
+          "url": "https://upload.wikimedia.org/wikipedia/commons/thumb/4/45/A_small_cup_of_coffee.JPG/275px-A_small_cup_of_coffee.JPG"
+        }
+      }
+    },
 
+   {
+      "attachment": {
+        "type": "image",
+        "payload": {
+          "url": "https://upload.wikimedia.org/wikipedia/commons/thumb/4/45/A_small_cup_of_coffee.JPG/275px-A_small_cup_of_coffee.JPG"
+        }
+      }
+    },
+    
     {
       "attachment":{
         "type":"template",
         "payload":{
-          "template_type":"generic",
-          "image_aspect_ratio": "square",
+          "template_type":"list",
+          "top_element_style":"large",
           "elements":[
             {
               "title":"Chatfuel Rockets T-Shirt",
-              "image_url":"https://upload.wikimedia.org/wikipedia/commons/thumb/4/45/A_small_cup_of_coffee.JPG/275px-A_small_cup_of_coffee.JPG",
+              "image_url":"http://rockets.chatfuel.com/img/shirt.png",
               "subtitle":"Soft white cotton t-shirt with CF Rockets logo",
               "buttons":[
                 {
@@ -90,13 +106,8 @@ app.get('/*', function(req, res) {
             },
             {
               "title":"Chatfuel Rockets Hoodie",
-              "image_url":"https://upload.wikimedia.org/wikipedia/commons/thumb/4/45/A_small_cup_of_coffee.JPG/275px-A_small_cup_of_coffee.JPG",
-              "subtitle":"Soft grey cotton hoddie with CF Rockets logo",
-              "default_action": {
-                "type": "web_url",
-                "url": "https://rockets.chatfuel.com/store",
-                "messenger_extensions": true
-              },
+              "image_url":"http://rockets.chatfuel.com/img/hoodie.png",
+              "subtitle":"Soft gray cotton t-shirt with CF Rockets logo",
               "buttons":[
                 {
                   "type":"web_url",
@@ -109,6 +120,8 @@ app.get('/*', function(req, res) {
         }
       }
     }
+
+
 
     );
     res.send(jsonResponse);
