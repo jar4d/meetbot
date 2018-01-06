@@ -48,7 +48,12 @@ app.get('/*', function(req, res) {
               {
                 "type":"web_url",
                 "url":"http://smokinggoatbar.com/shoreditch/",
-                "title":"View Website"
+                "title":"Yesss."
+              },
+              {
+                "type":"web_url",
+                "url":"http://smokinggoatbar.com/shoreditch/",
+                "title":"Not quite..."
               }        
             ]      
           }
