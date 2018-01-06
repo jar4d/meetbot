@@ -66,16 +66,6 @@ app.get('/*', function(req, res) {
 
    {"text": "How about The Smoking Goat?"},
    
-    
-   {
-      "attachment": {
-        "type": "image",
-        "payload": {
-          "url": "https://www.instagram.com/p/BdhfXSGh27v/"
-        }
-      }
-    },
-
     {"text": "It's a Thai Barbecue Bar."},
 
    
