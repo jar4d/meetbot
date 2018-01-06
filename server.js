@@ -74,7 +74,7 @@ app.get('/*', function(req, res) {
       "default_action": {
         "type": "web_url",
         "url": "http://smokinggoatbar.com/shoreditch/",
-        "messenger_extensions": TRUE,
+        "messenger_extensions": true,
         "webview_height_ratio": "FULL"
       },
       "buttons":[{
