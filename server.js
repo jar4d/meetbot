@@ -133,7 +133,7 @@ app.get('/*', function(req, res) {
               "buttons":[
                 {
                   "type":"web_url",
-                  "url":"https://rockets.chatfuel.com/store/shirt",
+                  "url":"http://smokinggoatbar.com/shoreditch/",
                   "title":"View Item"
                 }
               ]
@@ -144,13 +144,13 @@ app.get('/*', function(req, res) {
               "subtitle":"Soft grey cotton hoddie with CF Rockets logo",
               "default_action": {
                 "type": "web_url",
-                "url": "https://rockets.chatfuel.com/store",
+                "url": "http://smokinggoatbar.com/shoreditch/",
                 "messenger_extensions": true
               },
               "buttons":[
                 {
                   "type":"web_url",
-                  "url":"https://rockets.chatfuel.com/store/hoodie",
+                  "url":"http://smokinggoatbar.com/shoreditch/",
                   "title":"View Item"
                 }
               ]
