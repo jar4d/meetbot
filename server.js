@@ -35,6 +35,7 @@ app.get('/*', function(req, res) {
             "title":"LALALA",
             "image_url":"https://scontent.cdninstagram.com/t51.2885-15/s640x640/sh0.08/e35/26151403_788886704629335_7818346908434300928_n.jpg",
             "subtitle":"Weve got the right hat for everyone.",
+            /*
             "default_action": {
               "type": "web_url",
               "url": "http://smokinggoatbar.com/shoreditch/",
@@ -42,6 +43,7 @@ app.get('/*', function(req, res) {
               "webview_height_ratio": "full",
               "fallback_url": "http://smokinggoatbar.com/shoreditch/"
             },
+            */
             "buttons":[
               {
                 "type":"web_url",
