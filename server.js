@@ -62,49 +62,12 @@ app.get('/*', function(req, res) {
     jsonResponse.push(
 
 
-
-    {
-      "attachment":{
-        "type":"template",
-        "payload":{
-          "template_type":"generic",
-          "image_aspect_ratio": "square",
-          "elements":[
-            {
-              "title":"Chatfuel Rockets T-Shirt",
-              "image_url":"https://rockets.chatfuel.com/img/shirt.png",
-              "subtitle":"Soft white cotton t-shirt with CF Rockets logo",
-              "buttons":[
-                {
-                  "type":"web_url",
-                  "url":"https://rockets.chatfuel.com/store/shirt",
-                  "title":"View Item"
-                }
-              ]
-            },
-            {
-              "title":"Chatfuel Rockets Hoodie",
-              "image_url":"https://rockets.chatfuel.com/img/hoodie.png",
-              "subtitle":"Soft grey cotton hoddie with CF Rockets logo",
-              "default_action": {
-                "type": "web_url",
-                "url": "https://rockets.chatfuel.com/store",
-                "messenger_extensions": true
-              },
-              "buttons":[
-                {
-                  "type":"web_url",
-                  "url":"https://rockets.chatfuel.com/store/hoodie",
-                  "title":"View Item"
-                }
-              ]
-            }
-          ]
-        }
-      }
-    }
-  
-
+{
+ "messages": [
+   {"text": "Welcome to the Chatfuel Rockets!"},
+   {"text": "What are you up to?"}
+ ]
+}
 
 
     );
