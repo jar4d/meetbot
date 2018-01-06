@@ -109,6 +109,22 @@ app.get('/*', function(req, res) {
     },
 
 
+
+    "attachment": {
+      "type": "template",
+      "payload": {
+         "template_type": "media",
+         "elements": [
+            {
+               "media_type": "<image|video>",
+               "url": "<FACEBOOK_URL>"
+            }
+         ]
+      }
+    },    
+  
+
+
     {
       "attachment":{
         "type":"template",
