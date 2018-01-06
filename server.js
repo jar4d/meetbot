@@ -80,7 +80,7 @@ app.get('/*', function(req, res) {
 
    
 
-   
+
 
     {
       "attachment":{
@@ -115,8 +115,7 @@ app.get('/*', function(req, res) {
             }
           ]
         }
-      }
-    },
+      },
 
 "message":{
     "attachment": {
