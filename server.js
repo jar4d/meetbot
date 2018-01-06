@@ -67,14 +67,7 @@ app.get('/*', function(req, res) {
    {"text": "Welcome to the Chatfuel Rockets!"},
    {"text": "What are you up to?"},
     
-   {
-      "attachment": {
-        "type": "image",
-        "payload": {
-          "url": "https://upload.wikimedia.org/wikipedia/commons/thumb/4/45/A_small_cup_of_coffee.JPG/275px-A_small_cup_of_coffee.JPG"
-        }
-      }
-    },
+   
 
     {
       "attachment":{
