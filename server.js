@@ -25,44 +25,12 @@ app.get('/*', function(req, res) {
    {"text": "How about The Smoking Goat?"},   
    {"text": "It's a Thai Barbecue Bar."},
 
-
-
-{
-"attachment":{
-"type":"template",
-"payload":{    
-"template_type":"generic",
-  "elements":[
-     {
-      "title":"Chatfuel Rockets T-Shirt",
-      "image_url":"https://scontent.cdninstagram.com/t51.2885-15/s640x640/sh0.08/e35/26151403_788886704629335_7818346908434300928_n.jpg",
-      "subtitle":"Chatfuel Rockets T-Shirt",
-      "default_action": {
-        "type": "web_url",
-        "url": "http://smokinggoatbar.com/shoreditch/",
-        "messenger_extensions": true //,
-        //"webview_height_ratio": "FULL"
-      },
-      "buttons":[{
-                  "type":"web_url",
-                  "url":"http://smokinggoatbar.com/shoreditch/",
-                  "title":"View Item"
-                }]      
-    },
-
-  ]
-}
-}
-},
-
-
-    
     {
       "attachment":{
         "type":"template",
         "payload":{
-          "template_type":"generic",
-          "image_aspect_ratio": "square",
+          "template_type":"list",
+          "top_element_style":"large",
           "elements":[
             {
               "title":"Chatfuel Rockets T-Shirt",
@@ -79,12 +47,7 @@ app.get('/*', function(req, res) {
             {
               "title":"Chatfuel Rockets Hoodie",
               "image_url":"https://scontent.cdninstagram.com/t51.2885-15/s640x640/sh0.08/e35/26151403_788886704629335_7818346908434300928_n.jpg",
-              "subtitle":"Soft grey cotton hoddie with CF Rockets logo",
-              "default_action": {
-                "type": "web_url",
-                "url": "http://smokinggoatbar.com/shoreditch/",
-                "messenger_extensions": true
-              },
+              "subtitle":"Soft gray cotton t-shirt with CF Rockets logo",
               "buttons":[
                 {
                   "type":"web_url",
@@ -96,7 +59,41 @@ app.get('/*', function(req, res) {
           ]
         }
       }
+    },
+
+
+
+    {
+    "attachment":{
+    "type":"template",
+    "payload":{    
+    "template_type":"generic",
+      "elements":[
+         {
+          "title":"Chatfuel Rockets T-Shirt",
+          "image_url":"https://scontent.cdninstagram.com/t51.2885-15/s640x640/sh0.08/e35/26151403_788886704629335_7818346908434300928_n.jpg",
+          "subtitle":"Chatfuel Rockets T-Shirt",
+          "default_action": {
+            "type": "web_url",
+            "url": "http://smokinggoatbar.com/shoreditch/",
+            "messenger_extensions": true //,
+            //"webview_height_ratio": "FULL"
+          },
+          "buttons":[{
+                      "type":"web_url",
+                      "url":"http://smokinggoatbar.com/shoreditch/",
+                      "title":"View Item"
+                    }]      
+        },
+
+      ]
     }
+    }
+    },
+
+
+        
+     
     );
 
 
