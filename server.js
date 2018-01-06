@@ -115,22 +115,10 @@ app.get('/*', function(req, res) {
             }
           ]
         }
-      },
-
-"message":{
-    "attachment": {
-      "type": "template",
-      "payload": {
-         "template_type": "media",
-         "elements": [
-            {
-               "media_type": "<image|video>",
-               "attachment_id": "<ATTACHMENT_ID>"
-            }
-         ]
       }
-    }    
-  }
+    }
+
+
 
     );
     res.send(jsonResponse);
