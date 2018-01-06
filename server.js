@@ -1,15 +1,14 @@
-const app = express();
 
+var express = require('express');
+var app = express();
 
-export function setupApi() {  
 
 app.listen(80, function() {
     console.log('Chatfuel Bot-Server listening on port 80...');
 });
 
 
-  WebApp.connectHandlers.use(app); //mount into Meteor
-}
+
 
 
 
