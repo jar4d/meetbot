@@ -63,6 +63,34 @@ app.get('/*', function(req, res) {
 
 
 
+{
+"attachment":{
+"type":"template",
+"payload":{    
+"template_type":"generic",
+  "elements":[
+     {
+      "title":"Chatfuel Rockets T-Shirt",
+      "image_url":"https://scontent.cdninstagram.com/t51.2885-15/s640x640/sh0.08/e35/26151403_788886704629335_7818346908434300928_n.jpg",
+      "subtitle":"Chatfuel Rockets T-Shirt",
+      "default_action": {
+        "type": "web_url",
+        "url": "http://smokinggoatbar.com/shoreditch/",
+        "messenger_extensions": true //,
+        //"webview_height_ratio": "FULL"
+      },
+      "buttons":[{
+                  "type":"web_url",
+                  "url":"http://smokinggoatbar.com/shoreditch/",
+                  "title":"View Item"
+                }]      
+    },
+
+  ]
+}
+}
+},
+
 
     
     {
