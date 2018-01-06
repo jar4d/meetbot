@@ -49,36 +49,16 @@ app.listen(80, function() {
 */
 
 
-
-
 app.get('/*', function(req, res) {
 
-	var data = req.query; 
-	//console.log('REQ Item: ', p);   // shows all data...
-	console.log('New query...'); 
+    var data = req.query; 
+    //console.log('REQ Item: ', p);   // shows all data...
+    console.log('New query...'); 
     console.log('venueType: ', data.venueType);   
-	console.log('longitude: ', data.longitude);   
-	console.log('latitude: ', data.latitude);  
-
-    //var databaseSearch = Places.find();
-
-    var jsonResponse = [];
-    //jsonResponse.push({ "text": "https://www.google.com/maps/dir/" + data.latitude + "," + data.longitude + "/48.179926,27.28875860"});
-    jsonResponse.push(
-        { "text": "Hi. " + (Math.random() * 5 + 1).toFixed(0) + " is a lucky number..." }
-    );
-
-    res.send(jsonResponse);
-
-});
-
-
-/*
-app.get('/*', function(req, res) {
-
+    console.log('longitude: ', data.longitude);   
+    console.log('latitude: ', data.latitude);  
 
     var jsonResponse = [];
     jsonResponse.push({ "text": "Hi. " + (Math.random() * 5 + 1).toFixed(0) + " is a lucky number..." });
     res.send(jsonResponse);
 });
-*/
