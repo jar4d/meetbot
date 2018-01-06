@@ -62,12 +62,12 @@ app.get('/*', function(req, res) {
     jsonResponse.push(
 
 
-{
- "messages": [
+
+
    {"text": "Welcome to the Chatfuel Rockets!"},
    {"text": "What are you up to?"}
- ]
-}
+
+
 
 
     );
