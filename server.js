@@ -76,7 +76,7 @@ app.get('/*', function(req, res) {
               "type": "web_url",
               "url": "http://smokinggoatbar.com/shoreditch/",
               "messenger_extensions": true,
-              "webview_height_ratio": "tall",
+              "webview_height_ratio": "full",
               "fallback_url": "http://smokinggoatbar.com/shoreditch/"
             },
             "buttons":[
