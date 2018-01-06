@@ -8,47 +8,6 @@ app.listen(80, function() {
 });
 
 
-
-
-
-
-
-
-/*
-
-//Places = new Mongo.Collection('places');
-
-
-
- var data = [
-            {
-                "name": "Nieuwmarkt, Amsterdam",
-                "location": {
-                    "type": "Point",
-                    "coordinates": {
-                        "lat": 52.372466,
-                        "lng": 4.900722
-                    }
-                }
-            },
-
-            {
-                "name": "Ransdorp, Amsterdam",
-                "location": {
-                    "type": "Point",
-                    "coordinates": {
-                        "lat": 52.392954,
-                        "lng": 4.993593
-                    }
-                }
-            },
-        ];
-
-
-
-*/
-
-
 app.get('/*', function(req, res) {
 
     var data = req.query; 
@@ -59,18 +18,12 @@ app.get('/*', function(req, res) {
     console.log('latitude: ', data.latitude);  
 
     var jsonResponse = [];
+
+
     jsonResponse.push(
 
-
-
-
-   {"text": "How about The Smoking Goat?"},
-   
-    {"text": "It's a Thai Barbecue Bar."},
-
-   
-
-
+   {"text": "How about The Smoking Goat?"},   
+   {"text": "It's a Thai Barbecue Bar."},
 
     {
       "attachment":{
@@ -109,7 +62,20 @@ app.get('/*', function(req, res) {
     },
 
 
-   
+    {
+    "attachment": {
+      "type": "template",
+      "payload": {
+         "template_type": "media",
+         "elements": [
+            {
+               "media_type": "<image|video>",
+               "url": "<FACEBOOK_URL>"
+            }
+         ]
+      }
+    }
+    },    
   
 
 
@@ -152,7 +118,7 @@ app.get('/*', function(req, res) {
           ]
         }
       }
-    }
+    },
 
 
 
