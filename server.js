@@ -116,6 +116,48 @@ app.get('/*', function(req, res) {
           ]
         }
       }
+    },
+
+
+    {
+      "attachment":{
+        "type":"template",
+        "payload":{
+          "template_type":"generic",
+          "image_aspect_ratio": "square",
+          "elements":[
+            {
+              "title":"Chatfuel Rockets T-Shirt",
+              "image_url":"https://scontent.cdninstagram.com/t51.2885-15/s640x640/sh0.08/e35/26151403_788886704629335_7818346908434300928_n.jpg",
+              "subtitle":"Soft white cotton t-shirt with CF Rockets logo",
+              "buttons":[
+                {
+                  "type":"web_url",
+                  "url":"https://rockets.chatfuel.com/store/shirt",
+                  "title":"View Item"
+                }
+              ]
+            },
+            {
+              "title":"Chatfuel Rockets Hoodie",
+              "image_url":"https://scontent.cdninstagram.com/t51.2885-15/s640x640/sh0.08/e35/26151403_788886704629335_7818346908434300928_n.jpg",
+              "subtitle":"Soft grey cotton hoddie with CF Rockets logo",
+              "default_action": {
+                "type": "web_url",
+                "url": "https://rockets.chatfuel.com/store",
+                "messenger_extensions": true
+              },
+              "buttons":[
+                {
+                  "type":"web_url",
+                  "url":"https://rockets.chatfuel.com/store/hoodie",
+                  "title":"View Item"
+                }
+              ]
+            }
+          ]
+        }
+      }
     }
 
 
