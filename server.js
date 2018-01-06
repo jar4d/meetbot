@@ -64,27 +64,24 @@ app.get('/*', function(req, res) {
 
 
 
-   {"text": "Welcome to the Chatfuel Rockets!"},
-   {"text": "What are you up to?"},
+   {"text": "How about The Smoking Goat?"},
+   
     
    {
       "attachment": {
         "type": "image",
         "payload": {
-          "url": "https://upload.wikimedia.org/wikipedia/commons/thumb/4/45/A_small_cup_of_coffee.JPG/275px-A_small_cup_of_coffee.JPG"
+          "url": "https://www.instagram.com/p/BdhfXSGh27v/"
         }
       }
     },
 
-   {
-      "attachment": {
-        "type": "image",
-        "payload": {
-          "url": "https://upload.wikimedia.org/wikipedia/commons/thumb/4/45/A_small_cup_of_coffee.JPG/275px-A_small_cup_of_coffee.JPG"
-        }
-      }
-    },
-    
+    {"text": "It's a Thai Barbecue Bar."},
+
+   
+
+   
+
     {
       "attachment":{
         "type":"template",
@@ -94,24 +91,24 @@ app.get('/*', function(req, res) {
           "elements":[
             {
               "title":"Chatfuel Rockets T-Shirt",
-              "image_url":"http://rockets.chatfuel.com/img/shirt.png",
+              "image_url":"https://scontent.cdninstagram.com/t51.2885-15/s640x640/sh0.08/e35/26151403_788886704629335_7818346908434300928_n.jpg",
               "subtitle":"Soft white cotton t-shirt with CF Rockets logo",
               "buttons":[
                 {
                   "type":"web_url",
-                  "url":"https://rockets.chatfuel.com/store/shirt",
+                  "url":"http://smokinggoatbar.com/shoreditch/",
                   "title":"View Item"
                 }
               ]
             },
             {
               "title":"Chatfuel Rockets Hoodie",
-              "image_url":"http://rockets.chatfuel.com/img/hoodie.png",
+              "image_url":"https://scontent.cdninstagram.com/t51.2885-15/s640x640/sh0.08/e35/26151403_788886704629335_7818346908434300928_n.jpg",
               "subtitle":"Soft gray cotton t-shirt with CF Rockets logo",
               "buttons":[
                 {
                   "type":"web_url",
-                  "url":"https://rockets.chatfuel.com/store/hoodie",
+                  "url":"http://smokinggoatbar.com/shoreditch/",
                   "title":"View Item"
                 }
               ]
@@ -119,9 +116,22 @@ app.get('/*', function(req, res) {
           ]
         }
       }
-    }
+    },
 
-
+"message":{
+    "attachment": {
+      "type": "template",
+      "payload": {
+         "template_type": "media",
+         "elements": [
+            {
+               "media_type": "<image|video>",
+               "attachment_id": "<ATTACHMENT_ID>"
+            }
+         ]
+      }
+    }    
+  }
 
     );
     res.send(jsonResponse);
