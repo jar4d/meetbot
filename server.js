@@ -10,9 +10,9 @@ var url = 'mongodb://meetbotuser:meetbot@ds247077.mlab.com:47077/meetbot';
 MongoClient.connect(url, (err, database) => {
   if (err) return console.log(err);
   db = database
-  //const meetbotdb = database.db('meetbot');
-  //meetbotdb.collection('locations');
-  var cursor = db.collection('locations').find();
+  const meetbotdb = database.db('meetbot');
+  meetbotdb.collection('locations');
+  var cursor = db.collection('meetbot').find();
 
 
 
