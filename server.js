@@ -13,10 +13,6 @@ MongoClient.connect(url, (err, db) => {
   const database = db.db('meetbot');
   database.collection('locations');
   
-  cursor = database.collection('meetbot').find();
-
-
-
   app.listen(80, () => {
     console.log('Chatfuel Bot-Server listening on port 80...')
   });
@@ -33,12 +29,11 @@ app.get('/*', function(req, res) {
     console.log('longitude: ', data.longitude);   
     console.log('latitude: ', data.latitude);  
 
-    //look at DB
-    //var count = cursor.count();
+
+    cursor = database.collection('meetbot').find();
     var count = database.collection('meetbot').find().count();
     countstring = JSON.stringify( count );
     console.log("DB count: " + countstring);
-      // send HTML file populated with quotes here
 
     var jsonResponse = [];
 
