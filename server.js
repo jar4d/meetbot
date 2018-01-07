@@ -2,11 +2,14 @@
 var express = require('express');
 var app = express();
 const MongoClient = require('mongodb').MongoClient
-var db
+const db = require('./config/db');
 
-MongoClient.connect(db.'mongodb://meetbotuser:meetbot@ds247077.mlab.com:47077/meetbot', (err, database) => {
+MongoClient.connect('db.url', (err, database) => {
   if (err) return console.log(err)
   db = database
+  const meetbotdatabase = database.db('meetbotuser');
+  meetbotdatabase.collection('locations');
+
   app.listen(80, () => {
     console.log('Chatfuel Bot-Server listening on port 80...')
   });
@@ -24,9 +27,9 @@ app.get('/*', function(req, res) {
     console.log('latitude: ', data.latitude);  
 
     //look at DB
-    var cursor = db.collection('locations').find();
+    var cursor = meetbotdatabase.collection('locations').find();
 
-    db.collection('locations').find().toArray(function(err, results) {
+    meetbotdatabase.collection('locations').find().toArray(function(err, results) {
       console.log("DB output: " + results);
       // send HTML file populated with quotes here
     });    
