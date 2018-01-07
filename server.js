@@ -7,7 +7,7 @@ var url = 'mongodb://meetbotuser:meetbot@ds247077.mlab.com:47077/meetbot';
 
 
 
-MongoClient.connect(url, (err, database) => {
+MongoClient.connect(url, (err, db) => {
   if (err) return console.log(err);
 
   //const meetbotdb = database.db('meetbot');
@@ -15,7 +15,7 @@ MongoClient.connect(url, (err, database) => {
   var cursor = db.collection('meetbot').find();
 
 
-  
+
   app.listen(80, () => {
     console.log('Chatfuel Bot-Server listening on port 80...')
   });
