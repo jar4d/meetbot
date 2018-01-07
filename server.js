@@ -13,7 +13,7 @@ MongoClient.connect(url, (err, db) => {
   const database = db.db('meetbot');
   database.collection('locations');
   
-  //var cursor = database.collection('meetbot').find();
+  var cursor = database.collection('meetbot').find();
 
 
 
@@ -35,7 +35,7 @@ app.get('/*', function(req, res) {
 
     //look at DB
     //var cursor = db.locations.find();
-    var count = database.collection('meetbot').find();
+    //var count = database.collection('meetbot').find();
     console.log("DB count: " + count);
       // send HTML file populated with quotes here
 
