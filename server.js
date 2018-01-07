@@ -13,7 +13,7 @@ MongoClient.connect(url)
 
     })
 .catch(function(err){
-    console.log("couldnt connect to DB...")
+    console.log(err)
     })
 
 
