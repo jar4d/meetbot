@@ -8,7 +8,8 @@ var url = 'mongodb://meetbotuser:meetbot@ds247077.mlab.com:47077/meetbot';
 
 MongoClient.connect(url)
     .then(function(db){
-        console.log(db)
+    var count = database.collection('meetbot').find().count();
+    console.log("DB count: " + count);        
 
     })
 .catch(function(err){
