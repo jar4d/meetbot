@@ -8,8 +8,8 @@ const db = require('./config/db');
 MongoClient.connect(db.url, (err, database) => {
   if (err) return console.log(err);
 
-  var db = database.db('meetbot');
-  var collections = db.collection('locations');
+  const meetbotdb = database.db('meetbot');
+  meetbotdb.collection('locations');
 
   app.listen(80, () => {
     console.log('Chatfuel Bot-Server listening on port 80...')
@@ -29,7 +29,7 @@ app.get('/*', function(req, res) {
 
     //look at DB
     //var cursor = db.locations.find();
-    var count = db.locations.find().count();
+    var count = db.meetbotdb.find().count();
     console.log("DB count: " + count);
       // send HTML file populated with quotes here
 
