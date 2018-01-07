@@ -2,15 +2,20 @@
 var express = require('express');
 var app = express();
 
-const MongoClient = require('mongodb').MongoClient;
-const db = require('./config/db');
+var MongoClient = require('mongodb').MongoClient;
+var url = 'mongodb://meetbotuser:meetbot@ds247077.mlab.com:47077/meetbot';
 
-MongoClient.connect(db.url, (err, database) => {
+
+
+MongoClient.connect(url, (err, database) => {
   if (err) return console.log(err);
 
-  const meetbotdb = database.db('meetbot');
-  meetbotdb.collection('locations');
+  //const meetbotdb = database.db('meetbot');
+  //meetbotdb.collection('locations');
+  var cursor = db.collection('meetbot').find();
 
+
+  
   app.listen(80, () => {
     console.log('Chatfuel Bot-Server listening on port 80...')
   });
