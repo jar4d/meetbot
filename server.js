@@ -34,8 +34,7 @@ app.get('/*', function(req, res) {
     console.log('latitude: ', data.latitude);  
 
     //look at DB
-    //var cursor = db.locations.find();
-    //var count = database.collection('meetbot').find();
+    var count = cursor.count();
     console.log("DB count: " + count);
       // send HTML file populated with quotes here
 
