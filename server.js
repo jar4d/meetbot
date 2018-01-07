@@ -29,7 +29,7 @@ app.get('/*', function(req, res) {
 
     //look at DB
     var cursor = db.collection("locations").find();
-    var count = db.collection("locations").find().count();
+    var count = db.collection.find().count();
     db.collection('locations').find().toArray(function(err, results) {
       console.log("DB count: " + count);
       // send HTML file populated with quotes here
