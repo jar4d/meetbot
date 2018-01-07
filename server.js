@@ -12,7 +12,7 @@ MongoClient.connect(url, (err, db) => {
 
   //const meetbotdb = database.db('meetbot');
   //meetbotdb.collection('locations');
-  var cursor = db.collection('meetbot').find();
+  var cursor = db.collection('locations').find();
 
 
 
