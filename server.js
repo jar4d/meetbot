@@ -1,15 +1,35 @@
 
 var express = require('express');
 var app = express();
+const MongoClient = require('mongodb').MongoClient
+var db
 
-
-app.listen(80, function() {
-    console.log('Chatfuel Bot-Server listening on port 80...');
+MongoClient.connect('mongodb://meetbotuser:meetbot@ds247077.mlab.com:47077/meetbot', (err, database) => {
+  if (err) return console.log(err)
+  db = database
+  app.listen(80, () => {
+    console.log('Chatfuel Bot-Server listening on port 80...')
+  });
 });
+
+/*
+
+Locations database 
+_id:
+drink: coffee / cocktail
+vibe: fancy / hipster
+longitude:
+latitude:
+name:
+description:
+imageURL:
+
+*/
 
 
 app.get('/*', function(req, res) {
 
+    //get stuff from API push
     var data = req.query; 
     //console.log('REQ Item: ', p);   // shows all data...
     console.log('New query...'); 
@@ -17,7 +37,22 @@ app.get('/*', function(req, res) {
     console.log('longitude: ', data.longitude);   
     console.log('latitude: ', data.latitude);  
 
+    //look at DB
+    var cursor = db.collection('locations').find();
+
+    db.collection('locations').find().toArray(function(err, results) {
+      console.log("DB output: " + results);
+      // send HTML file populated with quotes here
+    });    
+
     var jsonResponse = [];
+
+    // 
+
+
+
+
+
 
 
     jsonResponse.push(
@@ -31,8 +66,9 @@ app.get('/*', function(req, res) {
       "payload":{
         "template_type":"generic",
         "elements":[
+           
            {
-            "title":"LALALA",
+            "title":"LALALA0",
             "image_url":"https://scontent.cdninstagram.com/t51.2885-15/s640x640/sh0.08/e35/26151403_788886704629335_7818346908434300928_n.jpg",
             "subtitle":"Weve got the right hat for everyone.",
             /*
@@ -48,20 +84,62 @@ app.get('/*', function(req, res) {
               {
                 "type":"web_url",
                 "url":"http://smokinggoatbar.com/shoreditch/",
-                "title":"Yesss."
+                "title":"Location"
               },
               {
                 "type":"web_url",
                 "url":"http://smokinggoatbar.com/shoreditch/",
-                "title":"Not quite..."
+                "title":"Share"
               }        
             ]      
-          }
+          },
+
+           {
+            "title":"LALALA1",
+            "image_url":"https://scontent.cdninstagram.com/t51.2885-15/s640x640/sh0.08/e35/26151403_788886704629335_7818346908434300928_n.jpg",
+            "subtitle":"Weve got the right hat for everyone.",
+            
+            "buttons":[
+              {
+                "type":"web_url",
+                "url":"http://smokinggoatbar.com/shoreditch/",
+                "title":"Location"
+              },
+              {
+                "type":"web_url",
+                "url":"http://smokinggoatbar.com/shoreditch/",
+                "title":"Share"
+              }        
+            ]      
+          },
+
+           {
+            "title":"LALALA2",
+            "image_url":"https://scontent.cdninstagram.com/t51.2885-15/s640x640/sh0.08/e35/26151403_788886704629335_7818346908434300928_n.jpg",
+            "subtitle":"Weve got the right hat for everyone.",
+            
+            "buttons":[
+              {
+                "type":"web_url",
+                "url":"http://smokinggoatbar.com/shoreditch/",
+                "title":"Location"
+              },
+              {
+                "type":"web_url",
+                "url":"http://smokinggoatbar.com/shoreditch/",
+                "title":"Share"
+              }        
+            ]      
+          },
+
+
+
         ]
       }
     }
   },
 
+/*
     {
       "attachment":{
         "type":"template",
@@ -97,7 +175,7 @@ app.get('/*', function(req, res) {
         }
       }
     }
-
+*/
 
 
 

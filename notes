@@ -1,0 +1,8 @@
+
+
+npm install mongodb --save
+
+mongo db
+https://mlab.com/databases/meetbot#users
+U: meetbotuser
+P: meetbot
