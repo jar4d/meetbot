@@ -28,9 +28,9 @@ app.get('/*', function(req, res) {
     console.log('latitude: ', data.latitude);  
 
     //look at DB
-    var cursor = meetbotdatabase.collection('locations').find();
+    var cursor = db.collection('locations').find();
 
-    meetbotdatabase.collection('locations').find().toArray(function(err, results) {
+    db.collection('locations').find().toArray(function(err, results) {
       console.log("DB output: " + results);
       // send HTML file populated with quotes here
     });    
