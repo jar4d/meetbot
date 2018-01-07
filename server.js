@@ -28,8 +28,8 @@ app.get('/*', function(req, res) {
     console.log('latitude: ', data.latitude);  
 
     //look at DB
-    var cursor = db.collection('locations').find();
-    var count = db.locations.find().count();
+    var cursor = db.collection("locations").find();
+    var count = db.collection("locations").find().count();
     db.collection('locations').find().toArray(function(err, results) {
       console.log("DB count: " + count);
       // send HTML file populated with quotes here
