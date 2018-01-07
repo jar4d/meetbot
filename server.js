@@ -1,7 +1,7 @@
 
 var express = require('express');
 var app = express();
-const MongoClient = require('mongodb').MongoClient
+const MongoClient = require('mongodb').MongoClient;
 const db = require('./config/db');
 
 MongoClient.connect('db.url', (err, database) => {
