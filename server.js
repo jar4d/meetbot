@@ -6,8 +6,8 @@ const MongoClient = require('mongodb').MongoClient;
 const db = require('./config/db');
 
 MongoClient.connect(db.url, (err, database) => {
-  if (err) return console.log(err)
-  db = database
+  if (err) return console.log(err);
+
   const meetbotdatabase = database.db('meetbotuser');
   meetbotdatabase.collection('locations');
 
