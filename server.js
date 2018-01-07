@@ -29,7 +29,7 @@ app.get('/*', function(req, res) {
 
     //look at DB
     //var cursor = db.locations.find();
-    var count = db.meetbotdb.find().count();
+    var count = meetbotdb.find().count();
     console.log("DB count: " + count);
       // send HTML file populated with quotes here
 
