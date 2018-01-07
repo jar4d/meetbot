@@ -8,7 +8,7 @@ const dburl = require('./config/db');
 MongoClient.connect(dburl.url, (err, database) => {
   if (err) return console.log(err);
 
-  db = database.db('meetbotuser');
+  db = database.db('meetbot');
   collections = db.collection('locations');
 
   app.listen(80, () => {
