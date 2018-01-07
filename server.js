@@ -15,6 +15,7 @@ var MongoClient = require('mongodb').MongoClient;
         db.collection('locations').findOne({}, function (findErr, result) {
             if (findErr) throw findErr;
             console.log(result);
+            locationsreturned = result;
             client.close();
         });
 
@@ -29,17 +30,11 @@ var MongoClient = require('mongodb').MongoClient;
             console.log('longitude: ', data.longitude);   
             console.log('latitude: ', data.latitude);  
 
-
-            cursor = database.collection('meetbot').find();
-            var count = database.collection('meetbot').find().count();
-            countstring = JSON.stringify( count );
-            console.log("DB count: " + count);
-
             var jsonResponse = [];
 
             jsonResponse.push(
 
-           {"text": "How about The Smoking Goat?"},   
+           {"text": "How about " + locationsreturned.name + "?"},   
            {"text": "It's a Thai Barbecue Bar."},
 
           {
