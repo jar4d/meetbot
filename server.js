@@ -1,10 +1,11 @@
 
 var express = require('express');
 var app = express();
+
 const MongoClient = require('mongodb').MongoClient;
 const db = require('./config/db');
 
-MongoClient.connect('db.url', (err, database) => {
+MongoClient.connect(db.url, (err, database) => {
   if (err) return console.log(err)
   db = database
   const meetbotdatabase = database.db('meetbotuser');
