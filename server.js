@@ -33,7 +33,7 @@ app.get('/*', function(req, res) {
     cursor = database.collection('meetbot').find();
     var count = database.collection('meetbot').find().count();
     countstring = JSON.stringify( count );
-    console.log("DB count: " + countstring);
+    console.log("DB count: " + count);
 
     var jsonResponse = [];
 
