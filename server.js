@@ -16,7 +16,7 @@ MongoClient.connect(url, (err, db) => {
   app.listen(80, () => {
     console.log('Chatfuel Bot-Server listening on port 80...')
   });
-});
+
 
 
 app.get('/*', function(req, res) {
@@ -30,8 +30,8 @@ app.get('/*', function(req, res) {
     console.log('latitude: ', data.latitude);  
 
 
-    cursor = db.collection('meetbot').find();
-    var count = db.collection('meetbot').find().count();
+    cursor = database.collection('meetbot').find();
+    var count = database.collection('meetbot').find().count();
     countstring = JSON.stringify( count );
     console.log("DB count: " + countstring);
 
@@ -175,4 +175,5 @@ app.get('/*', function(req, res) {
 
 
     res.send(jsonResponse);
+});
 });
