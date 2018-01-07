@@ -11,7 +11,7 @@ MongoClient.connect(url, (err, database) => {
   if (err) return console.log(err);
   db = database
   const meetbotdb = database.db('meetbot');
-  meetbotdb.collection('locations');
+  database.collection('locations');
   var cursor = db.collection('meetbot').find();
 
 
