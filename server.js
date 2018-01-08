@@ -26,6 +26,13 @@ var MongoClient = require('mongodb').MongoClient;
             client.close();
         });
 
+        db.collection('locations').find({"drink": data.drink,"vibe":data.vibe}).fetch({}, function (findErr, result) {
+            if (findErr) throw findErr;
+            console.log(result);
+            locationsmatched = result;
+            client.close();
+        });        
+
         app.get('/*', function(req, res) {
 
             //get stuff from API push
@@ -41,6 +48,9 @@ var MongoClient = require('mongodb').MongoClient;
             var jsonResponse = [];
 
             jsonResponse.push(
+
+               // for(var i = 0; i < users.length; ++i) { 
+               //     var x = users[i]; etc etc
 
            {"text": "Here are our picks for "+ locationsreturned.vibe + " " + locationsreturned.drink + " places less than 1/4 mile walk away."},   
 
