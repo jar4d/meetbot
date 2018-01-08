@@ -28,13 +28,13 @@ var MongoClient = require('mongodb').MongoClient;
             db.collection('locations').find({}).count({}, function (findErr, result) {
                 if (findErr) throw findErr;
                 //console.log(result);
-                locationscount = result;
+                var locationscount = result;
                 client.close();
             });
 
             db.collection('locations').find({}, function (findErr, result) {
                 if (findErr) throw findErr;
-                locationsmatched = result;
+                var locationsmatched = result;
                 //console.log(result);
                 client.close();
             });   
