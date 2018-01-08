@@ -39,7 +39,7 @@ var MongoClient = require('mongodb').MongoClient;
             db.collection('locations').find({"drink": data.drink,"vibe":data.vibe}, function (findErr, result) {
                 if (findErr) throw findErr;
                 console.log();
-                locationsmatched = result;
+                var locationsmatched = result;
                 client.close();
             });   
 
@@ -71,7 +71,7 @@ var MongoClient = require('mongodb').MongoClient;
             console.log("locationsmatched.length " + locationsmatched.length);
             //iterate over results...
             for(var i = 0; i < locationsmatched.length; ++i) {
-            console.log("locationsmatched  " + locationsmatched.length);
+            console.log("locationsmatched  " + locationsmatched);
                 jsonResponse.attachment.payload.elements.push(
 
 
