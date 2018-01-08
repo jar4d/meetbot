@@ -6,3 +6,18 @@ mongo db
 https://mlab.com/databases/meetbot#users
 U: meetbotuser
 P: meetbot
+
+collection = locations
+
+{
+    "_id": {
+        "$oid": "5a523123f36d2837f591b4e5"
+    },
+    "drink": "cocktail",
+    "vibe": "hipster",
+    "longitude": "51.5141856",
+    "latitude": "-0.1341727",
+    "name": "Bar Termini",
+    "description": "Espresso and cocktail bar",
+    "imageURL": "https://media.timeout.com/images/103939239/630/472/image.jpg"
+}

@@ -26,7 +26,8 @@ var MongoClient = require('mongodb').MongoClient;
             var data = req.query; 
             //console.log('REQ Item: ', p);   // shows all data...
             console.log('New query...'); 
-            console.log('venueType: ', data.venueType);   
+            console.log('Vibe: ', data.vibe);   
+            console.log('Drink: ', data.drink);       
             console.log('longitude: ', data.longitude);   
             console.log('latitude: ', data.latitude);  
 
@@ -34,8 +35,7 @@ var MongoClient = require('mongodb').MongoClient;
 
             jsonResponse.push(
 
-           {"text": "How about " + locationsreturned.name + "?"},   
-           {"text": "It's a Thai Barbecue Bar."},
+           {"text": "Here are our picks for "+ locationsreturned.vibe + " " + locationsreturned.drink  " places less than 1/4 mile walk away."},   
 
           {
             "attachment":{
@@ -45,9 +45,9 @@ var MongoClient = require('mongodb').MongoClient;
                 "elements":[
                    
                    {
-                    "title":"LALALA0",
-                    "image_url":"https://scontent.cdninstagram.com/t51.2885-15/s640x640/sh0.08/e35/26151403_788886704629335_7818346908434300928_n.jpg",
-                    "subtitle":"Weve got the right hat for everyone.",
+                    "title":locationsreturned.name,
+                    "image_url":locationsreturned.imageURL,
+                    "subtitle":locationsreturned.description,
                     /*
                     "default_action": {
                       "type": "web_url",
@@ -60,7 +60,7 @@ var MongoClient = require('mongodb').MongoClient;
                     "buttons":[
                       {
                         "type":"web_url",
-                        "url":"http://smokinggoatbar.com/shoreditch/",
+                        "url":"https://www.google.co.uk/maps/@" + longitude + "," + latitude + ",14z?hl=en",
                         "title":"Location"
                       },
                       {
