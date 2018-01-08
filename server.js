@@ -29,7 +29,6 @@ var MongoClient = require('mongodb').MongoClient;
 
             db.collection('locations').find({}).count({}, function (findErr, result) {
                 if (findErr) throw findErr;
-                //console.log(result);
                 var locationscount = result;
                 console.log("locationscount: "+ locationscount);
                 client.close();
@@ -38,7 +37,6 @@ var MongoClient = require('mongodb').MongoClient;
             db.collection('locations').find({}, function (findErr, result) {
                 if (findErr) throw findErr;
                 var locationsmatched = result;
-                console.log("result: "+ result);
                 console.log("locationsmatched: "+ locationsmatched);
                 client.close();
             });   
@@ -55,23 +53,22 @@ var MongoClient = require('mongodb').MongoClient;
             //container for gallery result elements
             jsonResponse.push(
             {
-                "attachment":{
-                  "type":"template",
-                  "payload":{
-                    "template_type":"generic",
-                    "elements":[]
+                attachment:{
+                  type:"template",
+                  payload:{
+                    template_type:"generic",
+                    elements:[]
                   }
                 }
-            }    
+            }                   
             );
 
-
+            var elementsArray = [];
             //iterate over results...
             for(var i = 0; i < locationscount; ++i) {
             console.log("locationsmatched  " + locationsmatched[i]);
-                jsonResponse['attachment']['payload']['elements'].push(
 
-
+            elementsArray.push(
                 //########start of element#########
                   {
                     "title":locationsmatched[i].name,
@@ -92,11 +89,15 @@ var MongoClient = require('mongodb').MongoClient;
                     ]      
                   }
                 //########end of element#########
-                );  
+                );
             }
+
+            jsonResponse['attachment']['payload']['elements'].push(elementsArray);
+
+
             jsonResponsestringify = JSON.stringify(jsonResponse);
             console.log("jsonResponse3: " + jsonResponsestringify);
-            res.send(jsonResponse);
+            res.send(jsonResponsestringify);
         });
 
 }); 
