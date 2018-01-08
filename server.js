@@ -65,7 +65,7 @@ var MongoClient = require('mongodb').MongoClient;
             //iterate over results...
             for(var i = 0; i < locationscount; ++i) {
             console.log("locationsmatched  " + locationsmatched[i]);
-                jsonResponse.attachment.payload.elements.push(
+                jsonResponse['attachment']['payload']['elements'].push(
 
 
                 //########start of element#########
