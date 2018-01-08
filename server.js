@@ -24,6 +24,8 @@ var MongoClient = require('mongodb').MongoClient;
 
             if (err) throw err;
             var db = client.db('meetbot');
+            var locationscount;
+            var locationsmatched;
 
             db.collection('locations').find({}).count({}, function (findErr, result) {
                 if (findErr) throw findErr;
