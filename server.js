@@ -35,7 +35,7 @@ var MongoClient = require('mongodb').MongoClient;
 
             jsonResponse.push(
 
-           {"text": "Here are our picks for "+ locationsreturned.vibe + " " + locationsreturned.drink  " places less than 1/4 mile walk away."},   
+           {"text": "Here are our picks for "+ locationsreturned.vibe + " " + locationsreturned.drink + " places less than 1/4 mile walk away."},   
 
           {
             "attachment":{
