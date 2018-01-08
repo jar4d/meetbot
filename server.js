@@ -67,15 +67,15 @@ var MongoClient = require('mongodb').MongoClient;
 
             //iterate over results...
             for(var i = 0; i < locationscount; ++i) {
-            console.log("locationsmatched  " + locationsmatched[i]);
+            console.log("looping  " + [i]);
 
             elementsArray.push(
                 //########start of element#########
                 {                  
                 elements:{
-                    title:locationsmatched[i].name,
-                    image_url:locationsmatched[i].imageURL,
-                    subtitle:locationsmatched[i].description,
+                    title:"AAA" //locationsmatched[i].name,
+                    image_url:"AAA" //locationsmatched[i].imageURL,
+                    subtitle:"AAA" //locationsmatched[i].description,
 
                     buttons:[
                       {
