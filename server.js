@@ -93,11 +93,15 @@ var MongoClient = require('mongodb').MongoClient;
                 );
             }
 
-            jsonResponse.attachment.payload.push(elementsArray);
+            //jsonResponse.attachment.payload.elements.push(elementsArray);
 
 
             jsonResponsestringify = JSON.stringify(jsonResponse);
-            console.log("jsonResponse3: " + jsonResponsestringify);
+            console.log("jsonResponse1: " + jsonResponsestringify);
+            jsonResponsestringify.attachment = JSON.stringify(jsonResponse);
+            console.log("jsonResponse2: " + jsonResponsestringify);
+            jsonResponsestringify.attachment.payload = JSON.stringify(jsonResponse);
+            console.log("jsonResponse3: " + jsonResponsestringify);                        
             res.send(jsonResponsestringify);
         });
 
