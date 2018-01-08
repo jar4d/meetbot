@@ -48,9 +48,9 @@ var MongoClient = require('mongodb').MongoClient;
             var elementsArray = [];
             var jsonResponse = [];
             //initial result response
-            jsonResponse.push(
-                {"text": "Here are our picks for "+ data.vibe + " " + data.drink + " places less than 1/4 mile walk away."}
-            );
+            //jsonResponse.push(
+            //    {"text": "Here are our picks for "+ data.vibe + " " + data.drink + " places less than 1/4 mile walk away."}
+            //);
 
             //container for gallery result elements
             jsonResponse.push(
