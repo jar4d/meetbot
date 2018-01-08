@@ -45,6 +45,8 @@ var MongoClient = require('mongodb').MongoClient;
             //console.log("locationsmatched: " + locationsmatched);
 
             var jsonResponse = [];
+            var elementsArray = [];
+            var jsonResponse = [];
             //initial result response
             jsonResponse.push(
                 {"text": "Here are our picks for "+ data.vibe + " " + data.drink + " places less than 1/4 mile walk away."}
@@ -63,7 +65,6 @@ var MongoClient = require('mongodb').MongoClient;
             }                   
             );
 
-            var elementsArray = [];
             //iterate over results...
             for(var i = 0; i < locationscount; ++i) {
             console.log("locationsmatched  " + locationsmatched[i]);
