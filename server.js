@@ -35,12 +35,13 @@ var MongoClient = require('mongodb').MongoClient;
             db.collection('locations').find({}, function (findErr, result) {
                 if (findErr) throw findErr;
                 var locationsmatched = result;
-                //console.log(result);
+                console.log("result: "+ result);
+                console.log("locationsmatched: "+ locationsmatched);
                 client.close();
             });   
 
-            console.log("locationscount: " + locationscount);
-            console.log("locationsmatched: " + locationsmatched);
+            //console.log("locationscount: " + locationscount);
+            //console.log("locationsmatched: " + locationsmatched);
 
             var jsonResponse = [];
             //initial result response
