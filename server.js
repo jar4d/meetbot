@@ -70,8 +70,9 @@ var MongoClient = require('mongodb').MongoClient;
             console.log("locationsmatched.length " + locationsmatched.length);
             //iterate over results...
             for(var i = 0; i < locationsmatched.length; ++i) {
-                jsonResponse.attachment.payload.elements.push(
             console.log("locationsmatched  " + locationsmatched);
+                jsonResponse.attachment.payload.elements.push(
+
 
                 //########start of element#########
                   {
