@@ -19,7 +19,7 @@ var MongoClient = require('mongodb').MongoClient;
             client.close();
         });
 
-        db.collection('locations').find{}.count({}, function (findErr, result) {
+        db.collection('locations').find({}).count({}, function (findErr, result) {
             if (findErr) throw findErr;
             console.log(result);
             locationscount = result;
