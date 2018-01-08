@@ -67,10 +67,11 @@ var MongoClient = require('mongodb').MongoClient;
             );
             jsonResponsestringify = JSON.stringify(jsonResponse);
             console.log("jsonResponse2: " + jsonResponsestringify);
-
+            console.log("locationsmatched.length " + locationsmatched.length);
             //iterate over results...
             for(var i = 0; i < locationsmatched.length; ++i) {
                 jsonResponse.attachment.payload.elements.push(
+            console.log("locationsmatched  " + locationsmatched);
 
                 //########start of element#########
                   {
