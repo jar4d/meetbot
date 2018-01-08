@@ -65,12 +65,13 @@ var MongoClient = require('mongodb').MongoClient;
                 }
             }    
             );
+
             jsonResponsestringify = JSON.stringify(jsonResponse);
             console.log("jsonResponse2: " + jsonResponsestringify);
             console.log("locationsmatched.length " + locationsmatched.length);
             //iterate over results...
             for(var i = 0; i < locationsmatched.length; ++i) {
-            console.log("locationsmatched  " + locationsmatched);
+            console.log("locationsmatched  " + locationsmatched.length);
                 jsonResponse.attachment.payload.elements.push(
 
 
