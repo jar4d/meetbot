@@ -39,24 +39,14 @@ var MongoClient = require('mongodb').MongoClient;
             db.collection('locations').find({"drink": data.drink,"vibe":data.vibe}, function (findErr, result) {
                 if (findErr) throw findErr;
                 locationsmatched = result;
-
-                var locationsmatchedstringify = JSON.stringify(locationsmatched);
-
-                console.log("locationsmatched in function" + locationsmatchedstringify);
-
                 client.close();
             });   
-
-            var locationsmatchedstringify = JSON.stringify(locationsmatched);
-            console.log("locationsmatched out of function" + locationsmatchedstringify);
 
             var jsonResponse = [];
             //initial result response
             jsonResponse.push(
                 {"text": "Here are our picks for "+ data.vibe + " " + data.drink + " places less than 1/4 mile walk away."}
             );
-            jsonResponsestringify = JSON.stringify(jsonResponse);
-            console.log("jsonResponse1: " + jsonResponsestringify);
 
             //container for gallery result elements
             jsonResponse.push(
@@ -71,12 +61,10 @@ var MongoClient = require('mongodb').MongoClient;
             }    
             );
 
-            jsonResponsestringify = JSON.stringify(jsonResponse);
-            console.log("jsonResponse2: " + jsonResponsestringify);
-            console.log("locationsmatched.length " + locationsmatched.length);
+
             //iterate over results...
-            for(var i = 0; i < locationsmatched.length; ++i) {
-            console.log("locationsmatched  " + locationsmatched);
+            for(var i = 0; i < locationscount; ++i) {
+            console.log("locationsmatched  " + locationsmatched[i]);
                 jsonResponse.attachment.payload.elements.push(
 
 
