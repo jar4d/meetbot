@@ -31,6 +31,7 @@ var MongoClient = require('mongodb').MongoClient;
                 if (findErr) throw findErr;
                 //console.log(result);
                 var locationscount = result;
+                console.log("locationscount: "+ locationscount);
                 client.close();
             });
 
