@@ -71,21 +71,21 @@ var MongoClient = require('mongodb').MongoClient;
 
             elementsArray.push(
                 //########start of element#########
-                  {
-                    "title":locationsmatched[i].name,
-                    "image_url":locationsmatched[i].imageURL,
-                    "subtitle":locationsmatched[i].description,
+                  elements:{
+                    title:locationsmatched[i].name,
+                    image_url:locationsmatched[i].imageURL,
+                    subtitle:locationsmatched[i].description,
 
-                    "buttons":[
+                    buttons:[
                       {
-                        "type":"web_url",
-                        "url":"https://www.google.co.uk/maps/@" + data.longitude + "," + data.latitude + ",14z?hl=en",
-                        "title":"Location"
+                        type:"web_url",
+                        url:"https://www.google.co.uk/maps/@" + data.longitude + "," + data.latitude + ",14z?hl=en",
+                        title:"Location"
                       },
                       {
-                        "type":"web_url",
-                        "url":"http://smokinggoatbar.com/shoreditch/",
-                        "title":"Share"
+                        type:"web_url",
+                        url:"http://smokinggoatbar.com/shoreditch/",
+                        title:"Share"
                       }        
                     ]      
                   }
@@ -96,7 +96,7 @@ var MongoClient = require('mongodb').MongoClient;
             jsonResponse[0].attachment.payload.elements.push(elementsArray);
 
 
-            jsonResponsestringify = JSON.stringify(jsonResponse[0]);
+            jsonResponsestringify = JSON.stringify(jsonResponse);
             console.log("jsonResponse: " + jsonResponsestringify);         
 
             res.send(jsonResponsestringify);
