@@ -36,7 +36,7 @@ var MongoClient = require('mongodb').MongoClient;
 
             if (err) throw err;
             var db = client.db('meetbot');
-            db.collection('locations').find({"drink": data.drink,"vibe":data.vibe}, function (findErr, result) {
+            db.collection('locations').find({}, function (findErr, result) {
                 if (findErr) throw findErr;
                 locationsmatched = result;
                 client.close();
