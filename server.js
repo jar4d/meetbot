@@ -9,17 +9,6 @@ var MongoClient = require('mongodb').MongoClient;
         console.log('Chatfuel Bot-Server listening on port 80...')
         });
 
-        if (err) throw err;
-        var db = client.db('meetbot');
-
-        db.collection('locations').find({}).count({}, function (findErr, result) {
-            if (findErr) throw findErr;
-            console.log(result);
-            locationscount = result;
-            client.close();
-        });
-    
-
         app.get('/*', function(req, res) {
 
             //get stuff from API push
@@ -36,12 +25,23 @@ var MongoClient = require('mongodb').MongoClient;
 
             if (err) throw err;
             var db = client.db('meetbot');
+
+            db.collection('locations').find({}).count({}, function (findErr, result) {
+                if (findErr) throw findErr;
+                //console.log(result);
+                locationscount = result;
+                client.close();
+            });
+
             db.collection('locations').find({}, function (findErr, result) {
                 if (findErr) throw findErr;
                 locationsmatched = result;
-                console.log(result);
+                //console.log(result);
                 client.close();
             });   
+            
+            console.log("locationscount: " + locationscount);
+            console.log("locationsmatched: " + locationsmatched);
 
             var jsonResponse = [];
             //initial result response
