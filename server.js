@@ -102,7 +102,7 @@ var MongoClient = require('mongodb').MongoClient;
             jsonResponsestringify = JSON.stringify(jsonResponse[0].attachment);
             console.log("jsonResponse2: " + jsonResponsestringify);
 
-            jsonResponsestringify = JSON.stringify(jsonResponse.attachment.payload);
+            jsonResponsestringify = JSON.stringify(jsonResponse[0].attachment.payload);
             console.log("jsonResponse3: " + jsonResponsestringify);         
 
             res.send(jsonResponsestringify);
