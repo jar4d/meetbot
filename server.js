@@ -19,7 +19,6 @@ var MongoClient = require('mongodb').MongoClient;
             console.log('Drink: ', data.drink);       
             console.log('longitude: ', data.longitude);   
             console.log('latitude: ', data.latitude);  
-            console.log('locationscount: ', locationscount);  
         
 //db.collection.find( { field: { $gt: value1, $lt: value2 } } );
 
@@ -39,7 +38,7 @@ var MongoClient = require('mongodb').MongoClient;
                 //console.log(result);
                 client.close();
             });   
-            
+
             console.log("locationscount: " + locationscount);
             console.log("locationsmatched: " + locationsmatched);
 
