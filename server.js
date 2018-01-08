@@ -25,13 +25,7 @@ var MongoClient = require('mongodb').MongoClient;
             locationscount = result;
             client.close();
         });
-
-        db.collection('locations').find({"drink": data.drink,"vibe":data.vibe}).fetch({}, function (findErr, result) {
-            if (findErr) throw findErr;
-            console.log(result);
-            locationsmatched = result;
-            client.close();
-        });        
+    
 
         app.get('/*', function(req, res) {
 
@@ -44,6 +38,18 @@ var MongoClient = require('mongodb').MongoClient;
             console.log('longitude: ', data.longitude);   
             console.log('latitude: ', data.latitude);  
             console.log('locationscount: ', locationscount);  
+        
+        if (err) throw err;
+        var db = client.db('meetbot');
+        db.collection('locations').find({"drink": data.drink,"vibe":data.vibe}).fetch({}, function (findErr, result) {
+            if (findErr) throw findErr;
+            console.log(result);
+            locationsmatched = result;
+            client.close();
+        });   
+
+
+
 
             var jsonResponse = [];
 
