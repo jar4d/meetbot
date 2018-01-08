@@ -19,6 +19,12 @@ var MongoClient = require('mongodb').MongoClient;
             client.close();
         });
 
+        db.collection('locations').find{}.count({}, function (findErr, result) {
+            if (findErr) throw findErr;
+            console.log(result);
+            locationscount = result;
+            client.close();
+        });
 
         app.get('/*', function(req, res) {
 
@@ -30,6 +36,7 @@ var MongoClient = require('mongodb').MongoClient;
             console.log('Drink: ', data.drink);       
             console.log('longitude: ', data.longitude);   
             console.log('latitude: ', data.latitude);  
+            console.log('locationscount: ', locationscount);  
 
             var jsonResponse = [];
 
@@ -48,15 +55,7 @@ var MongoClient = require('mongodb').MongoClient;
                     "title":locationsreturned.name,
                     "image_url":locationsreturned.imageURL,
                     "subtitle":locationsreturned.description,
-                    /*
-                    "default_action": {
-                      "type": "web_url",
-                      "url": "http://smokinggoatbar.com/shoreditch/",
-                      "messenger_extensions": true,
-                      "webview_height_ratio": "full",
-                      "fallback_url": "http://smokinggoatbar.com/shoreditch/"
-                    },
-                    */
+
                     "buttons":[
                       {
                         "type":"web_url",
