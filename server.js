@@ -50,8 +50,10 @@ var MongoClient = require('mongodb').MongoClient;
 
 
             var jsonResponse = [];
+       
+   for(var i = 0; i < locationsmatched.length; ++i) {
 
-            jsonResponse.push(
+    jsonResponse.push(
                 {"text": "Here are our picks for "+ data.vibe + " " + data.drink + " places less than 1/4 mile walk away."},   
 
 
@@ -65,7 +67,6 @@ var MongoClient = require('mongodb').MongoClient;
                 "template_type":"generic",
                 "elements":[
                    
-               for(var i = 0; i < locationsmatched.length; ++i) {
 
                        {
                         "title":locationsmatched[i].name,
@@ -85,7 +86,7 @@ var MongoClient = require('mongodb').MongoClient;
                           }        
                         ]      
                       }
-                }
+                
 
 
 
@@ -94,7 +95,8 @@ var MongoClient = require('mongodb').MongoClient;
             }
           }     
              
-            );
+    );
+    }
 
 
             res.send(jsonResponse);
