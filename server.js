@@ -71,7 +71,8 @@ var MongoClient = require('mongodb').MongoClient;
 
             elementsArray.push(
                 //########start of element#########
-                  elements:{
+                {                  
+                elements:{
                     title:locationsmatched[i].name,
                     image_url:locationsmatched[i].imageURL,
                     subtitle:locationsmatched[i].description,
@@ -89,6 +90,7 @@ var MongoClient = require('mongodb').MongoClient;
                       }        
                     ]      
                   }
+                }
                 //########end of element#########
                 );
             }
