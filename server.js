@@ -39,6 +39,7 @@ var MongoClient = require('mongodb').MongoClient;
             db.collection('locations').find({}, function (findErr, result) {
                 if (findErr) throw findErr;
                 locationsmatched = result;
+                console.log(result);
                 client.close();
             });   
 
