@@ -38,12 +38,14 @@ var MongoClient = require('mongodb').MongoClient;
             var db = client.db('meetbot');
             db.collection('locations').find({"drink": data.drink,"vibe":data.vibe}, function (findErr, result) {
                 if (findErr) throw findErr;
-                console.log();
-                var locationsmatched = result;
+                locationsmatched = result;
+                console.log("locationsmatched in function" + locationsmatched);
+
                 client.close();
             });   
 
 
+            console.log("locationsmatched out of function" + locationsmatched);
 
             var jsonResponse = [];
             //initial result response
