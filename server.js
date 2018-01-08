@@ -14,14 +14,12 @@ var MongoClient = require('mongodb').MongoClient;
 
         db.collection('locations').findOne({}, function (findErr, result) {
             if (findErr) throw findErr;
-            console.log(result);
             locationsreturned = result;
             client.close();
         });
 
         db.collection('locations').find({}).count({}, function (findErr, result) {
             if (findErr) throw findErr;
-            console.log(result);
             locationscount = result;
             client.close();
         });
@@ -45,7 +43,6 @@ var MongoClient = require('mongodb').MongoClient;
             var db = client.db('meetbot');
             db.collection('locations').find({"drink": data.drink,"vibe":data.vibe}, function (findErr, result) {
                 if (findErr) throw findErr;
-                console.log();
                 locationsmatched = result;
                 client.close();
             });   
