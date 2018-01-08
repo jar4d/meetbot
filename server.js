@@ -12,13 +12,6 @@ var MongoClient = require('mongodb').MongoClient;
         if (err) throw err;
         var db = client.db('meetbot');
 
-        db.collection('locations').findOne({}, function (findErr, result) {
-            if (findErr) throw findErr;
-            console.log(result);
-            locationsreturned = result;
-            client.close();
-        });
-
         db.collection('locations').find({}).count({}, function (findErr, result) {
             if (findErr) throw findErr;
             console.log(result);
@@ -53,26 +46,32 @@ var MongoClient = require('mongodb').MongoClient;
 
 
             var jsonResponse = [];
-
+            //initial result response
             jsonResponse.push(
+                {"text": "Here are our picks for "+ data.vibe + " " + data.drink + " places less than 1/4 mile walk away."}
+            );
+            //container for gallery result elements
+            jsonResponse.push(
+            {
+                "attachment":{
+                  "type":"template",
+                  "payload":{
+                    "template_type":"generic",
+                    "elements":[]
+                  }
+                }
+            }    
+            );
 
+            //iterate over results...
             for(var i = 0; i < locationsmatched.length; ++i) {
+                jsonResponse.attachment.payload.elements.push(
 
-               //     var x = users[i]; etc etc
-
-           {"text": "Here are our picks for "+ data.vibe + " " + data.drink + " places less than 1/4 mile walk away."},   
-
-          {
-            "attachment":{
-              "type":"template",
-              "payload":{
-                "template_type":"generic",
-                "elements":[
-                   
-                   {
-                    "title":locationsreturned.name,
-                    "image_url":locationsreturned.imageURL,
-                    "subtitle":locationsreturned.description,
+                //########start of element#########
+                  {
+                    "title":locationsmatched[i].name,
+                    "image_url":locationsmatched[i].imageURL,
+                    "subtitle":locationsmatched[i].description,
 
                     "buttons":[
                       {
@@ -86,57 +85,14 @@ var MongoClient = require('mongodb').MongoClient;
                         "title":"Share"
                       }        
                     ]      
-                  },
-
-                   {
-                    "title":"LALALA1",
-                    "image_url":"https://scontent.cdninstagram.com/t51.2885-15/s640x640/sh0.08/e35/26151403_788886704629335_7818346908434300928_n.jpg",
-                    "subtitle":"Weve got the right hat for everyone.",
-                    
-                    "buttons":[
-                      {
-                        "type":"web_url",
-                        "url":"http://smokinggoatbar.com/shoreditch/",
-                        "title":"Location"
-                      },
-                      {
-                        "type":"web_url",
-                        "url":"http://smokinggoatbar.com/shoreditch/",
-                        "title":"Share"
-                      }        
-                    ]      
-                  },
-
-                   {
-                    "title":"LALALA2",
-                    "image_url":"https://scontent.cdninstagram.com/t51.2885-15/s640x640/sh0.08/e35/26151403_788886704629335_7818346908434300928_n.jpg",
-                    "subtitle":"Weve got the right hat for everyone.",
-                    
-                    "buttons":[
-                      {
-                        "type":"web_url",
-                        "url":"http://smokinggoatbar.com/shoreditch/",
-                        "title":"Location"
-                      },
-                      {
-                        "type":"web_url",
-                        "url":"http://smokinggoatbar.com/shoreditch/",
-                        "title":"Share"
-                      }        
-                    ]      
-                  },
-
-
-
-                ]
-              }
+                  }
+                //########end of element#########
+                );  
             }
-          }     
-             
-            );
 
-
+           
             res.send(jsonResponse);
         });
 
 }); 
+
