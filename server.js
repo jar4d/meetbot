@@ -73,9 +73,9 @@ var MongoClient = require('mongodb').MongoClient;
                 //########start of element#########
                 {                  
                 elements:{
-                    title:"AAA" //locationsmatched[i].name,
-                    image_url:"AAA" //locationsmatched[i].imageURL,
-                    subtitle:"AAA" //locationsmatched[i].description,
+                    title:"AAA", //locationsmatched[i].name,
+                    image_url:"AAA", //locationsmatched[i].imageURL,
+                    subtitle:"AAA", //locationsmatched[i].description,
 
                     buttons:[
                       {
