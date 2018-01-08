@@ -39,15 +39,17 @@ var MongoClient = require('mongodb').MongoClient;
             console.log('latitude: ', data.latitude);  
             console.log('locationscount: ', locationscount);  
         
-        if (err) throw err;
-        var db = client.db('meetbot');
-        db.collection('locations').find({"drink": data.drink,"vibe":data.vibe}).fetch({}, function (findErr, result) {
-            if (findErr) throw findErr;
-            console.log(result);
-            locationsmatched = result;
-            client.close();
-        });   
+        MongoClient.connect('mongodb://meetbotuser:meetbot@ds247077.mlab.com:47077/meetbot', function (err, client) {
 
+            if (err) throw err;
+            var db = client.db('meetbot');
+            db.collection('locations').find({"drink": data.drink,"vibe":data.vibe}).fetch({}, function (findErr, result) {
+                if (findErr) throw findErr;
+                console.log(result);
+                locationsmatched = result;
+                client.close();
+            });   
+        });
 
 
 
