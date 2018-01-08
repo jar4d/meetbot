@@ -50,7 +50,9 @@ var MongoClient = require('mongodb').MongoClient;
             jsonResponse.push(
                 {"text": "Here are our picks for "+ data.vibe + " " + data.drink + " places less than 1/4 mile walk away."}
             );
-            console.log("jsonResponse1: " + jsonResponse);
+            jsonResponsestringify = JSON.stringify(jsonResponse);
+            console.log("jsonResponse1: " + jsonResponsestringify);
+
             //container for gallery result elements
             jsonResponse.push(
             {
@@ -63,7 +65,9 @@ var MongoClient = require('mongodb').MongoClient;
                 }
             }    
             );
-            console.log("jsonResponse2: " + jsonResponse);
+            jsonResponsestringify = JSON.stringify(jsonResponse);
+            console.log("jsonResponse2: " + jsonResponsestringify);
+
             //iterate over results...
             for(var i = 0; i < locationsmatched.length; ++i) {
                 jsonResponse.attachment.payload.elements.push(
@@ -90,8 +94,8 @@ var MongoClient = require('mongodb').MongoClient;
                 //########end of element#########
                 );  
             }
-
-            console.log("jsonResponse3: " + jsonResponse);
+            jsonResponsestringify = JSON.stringify(jsonResponse);
+            console.log("jsonResponse3: " + jsonResponsestringify);
             res.send(jsonResponse);
         });
 
