@@ -76,7 +76,10 @@ MongoClient.connect(url, function (err, client) {
                             if(item == null) {
                               // Show that the cursor is closed
                               locationsmatched.toArray(function(err, items) {
-                                //assert.ok(err != null);
+                                //send stuff
+                                jsonResponsestringify = JSON.stringify(jsonResponse);
+                                res.send(jsonResponse); //not string
+                                console.log("Sent jsonResponse: " + jsonResponsestringify);     
                                 // Let's close the db
                                 client.close();
                               });
@@ -116,9 +119,7 @@ MongoClient.connect(url, function (err, client) {
 
                           });
 
-                        jsonResponsestringify = JSON.stringify(jsonResponse);
-                        res.send(jsonResponse); //not string
-                        console.log("Sent jsonResponse: " + jsonResponsestringify);         
+    
 
 
 
