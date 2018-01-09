@@ -12,6 +12,8 @@ var locationsmatched;
 
         app.get('/*', function(req, res) {
 
+            var locationscount;
+            var locationsmatched;
             //get stuff from API push
             var data = req.query; 
             //console.log('REQ Item: ', p);   // shows all data...
