@@ -37,7 +37,7 @@ var locationsmatched;
             db.collection('locations').find({}, function (findErr, result) { //{drink:data.drink, vibe:data.vibe}
                 if (findErr) throw findErr;
                 var locationsmatched = result;
-                console.log("locationsmatched: "+ locationsmatched[0]);
+                console.log("locationsmatched: "+ locationsmatched);
 
                 client.close();
             });   
