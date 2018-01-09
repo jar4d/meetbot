@@ -62,3 +62,27 @@ app.get('/*', function(req, res) {
 
 
 });
+
+
+[{
+	"attachment": {
+		"type": "template",
+		"payload": {
+			"template_type": "generic",
+			"elements": [{
+				"title": "locationsreturned.name",
+				"image_url": "locationsreturned.imageURL",
+				"subtitle": "locationsreturned.description",
+				"buttons": [{
+					"type": "web_url",
+					"url": "https://www.google.co.uk",
+					"title": "Location"
+				}, {
+					"type": "web_url",
+					"url": "http://smokinggoatbar.com/shoreditch/",
+					"title": "Share"
+				}]
+			}]
+		}
+	}
+}]

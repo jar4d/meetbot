@@ -27,7 +27,7 @@ var MongoClient = require('mongodb').MongoClient;
             var locationscount;
             var locationsmatched;
 
-            db.collection('locations').find({}).count({}, function (findErr, result) {
+            db.collection('locations').find({drink:data.drink, vibe:data.vibe}).count({}, function (findErr, result) {
                 if (findErr) throw findErr;
                 var locationscount = result;
                 console.log("locationscount: "+ locationscount);
@@ -79,7 +79,7 @@ var MongoClient = require('mongodb').MongoClient;
                     buttons:[
                         {
                             type:"web_url",
-                            url:"https://www.google.co.uk", ///maps/@" + data.longitude + "," + data.latitude + ",14z?hl=en",
+                            url:"https://www.google.co.uk/maps/@" + data.longitude + "," + data.latitude + ",14z?hl=en",
                             title:"Location"
                         },
                         {
