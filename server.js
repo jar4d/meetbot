@@ -34,7 +34,7 @@ var MongoClient = require('mongodb').MongoClient;
                 client.close();
             });
 
-            db.collection('locations').find({}, function (findErr, result) {
+            db.collection('locations').find({drink:data.drink, vibe:data.vibe}, function (findErr, result) {
                 if (findErr) throw findErr;
                 var locationsmatched = result;
                 console.log("locationsmatched: "+ locationsmatched);
