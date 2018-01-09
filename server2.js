@@ -74,15 +74,15 @@ MongoClient.connect(url, function (err, client) {
                             console.log("line 74 check: "+ locationsmatched);
                             console.log("item.name"+ item.name);
 
-                            var name = item.name;
-                            var image_url = item.image_url;
-                            var description = item.description;
+                            var nameVar = item.name;
+                            var image_urlVar = item.image_url;
+                            var descriptionVar = item.description;
 
                             elementsArray.push(
                                 {                  
-                                    title: name,
-                                    image_url: imageURL,
-                                    subtitle: description, 
+                                    title: nameVar,
+                                    image_url: imageURLVar,
+                                    subtitle: descriptionVar, 
 
                                     buttons:[
                                         {
