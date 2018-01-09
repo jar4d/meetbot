@@ -70,7 +70,7 @@ MongoClient.connect(url, function (err, client) {
                         console.log("line 70 check: "+ locationsmatched);
 
                           // Execute the each command, triggers for each document
-                          locationsmatched.each(function(err, item) {
+                          locationsmatched.forEach(function(err, item) {
                             
                             // If the item is null (none left) then the cursor is exhausted/empty and closed
                             if(item == null) {
@@ -112,9 +112,6 @@ MongoClient.connect(url, function (err, client) {
                                 });
 
                             jsonResponse[0].attachment.payload.elements.push(elementsArray[0]);
-                            var jsonResponsestringify = JSON.stringify(elementsArray);
-                            console.log("foreach element: " + jsonResponsestringify);         
-
                             }
 
                           });
