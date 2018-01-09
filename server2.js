@@ -80,9 +80,8 @@ MongoClient.connect(url, function (err, client) {
                                 // Let's close the db
                                 client.close();
                               });
-                            };
+                            }else{
 
-                            console.log("line 74 check: "+ locationsmatched);
                             console.log("item.name"+ item.name);
 
                             var nameVar = item.name;
@@ -110,7 +109,7 @@ MongoClient.connect(url, function (err, client) {
                                 });
 
                             jsonResponse[0].attachment.payload.elements.push(elementsArray[0]);
-
+                            }
 
                           });
 
