@@ -45,6 +45,8 @@ app.get('/*', function(req, res) {
 
                         //container for gallery result elements
                         jsonResponse.push(
+                            {"text": "Here are our picks for "+ data.vibe + " " + data.drink + " places less than 1/4 mile walk away."},
+
                             {
                                 attachment:{
                                     type:"template",
@@ -93,11 +95,11 @@ app.get('/*', function(req, res) {
                                     buttons:[
                                         {
                                             type:"web_url",
-                                            url:"https://www.google.co.uk",
+                                            url:"https://www.google.co.uk/maps/@" + item.longitude + "," + item.latitude + ",14z?hl=en",
                                             title:"Location"
                                         },
                                         {
-                                            type:"web_url",
+                                            type:"element_share",
                                             url:"http://smokinggoatbar.com/shoreditch/",
                                             title:"Share"
                                         }        

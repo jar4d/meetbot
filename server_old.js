@@ -56,6 +56,7 @@ var url = 'mongodb://meetbotuser:meetbot@ds247077.mlab.com:47077/meetbot';
 
             //container for gallery result elements
             jsonResponse.push(
+                {"text": "Here are our picks for "+ data.vibe + " " + data.drink + " places less than 1/4 mile walk away."},
                 {
                     attachment:{
                         type:"template",
