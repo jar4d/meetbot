@@ -2,7 +2,7 @@
 var express = require('express');
 var app = express();
 var MongoClient = require('mongodb').MongoClient;
-
+var data;
 
     MongoClient.connect('mongodb://meetbotuser:meetbot@ds247077.mlab.com:47077/meetbot', function (err, client) {
         app.listen(80, () => {
@@ -44,7 +44,6 @@ var MongoClient = require('mongodb').MongoClient;
             //console.log("locationscount: " + locationscount);
             //console.log("locationsmatched: " + locationsmatched);
 
-            var jsonResponse = [];
             var elementsArray = [];
             var jsonResponse = [];
             //initial result response
@@ -80,7 +79,7 @@ var MongoClient = require('mongodb').MongoClient;
                     buttons:[
                       {
                         type:"web_url",
-                        url:"http://smokinggoatbar.com/shoreditch/", 
+                        url:"https://www.google.co.uk/maps/@" + data.longitude + "," + data.latitude + ",14z?hl=en",
                         title:"Location"
                       },
                       {
