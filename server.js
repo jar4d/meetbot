@@ -104,7 +104,7 @@ app.get('/*', function(req, res) {
                                     ]      
                                 });
 
-                            jsonResponse[0].attachment.payload.elements.push(elementsArray[item]);
+                            jsonResponse[0].attachment.payload.elements.push(elementsArray);
                             }
 
                           });
