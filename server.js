@@ -59,7 +59,7 @@ var MongoClient = require('mongodb').MongoClient;
                   type:"template",
                   payload:{
                     template_type:"generic",
-                    elements:,
+                    elements:
                   }
                 }
             }                   
