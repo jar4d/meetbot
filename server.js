@@ -72,9 +72,9 @@ var MongoClient = require('mongodb').MongoClient;
             elementsArray.push(
                 //########start of element#########
                 {                  
-                    title:locationsreturned[0].name,
-                    image_url:locationsreturned[0].imageURL,
-                    subtitle:locationsreturned[0].description, 
+                    title:locationsmatched[0].name,
+                    image_url:locationsmatched[0].imageURL,
+                    subtitle:locationsmatched[0].description, 
 
                     buttons:[
                         {
