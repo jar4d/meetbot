@@ -72,14 +72,14 @@ var MongoClient = require('mongodb').MongoClient;
             elementsArray.push(
                 //########start of element#########
                 {                  
-                    title:"AAA", //locationsmatched[i].name,
-                    image_url:"AAA", //locationsmatched[i].imageURL,
-                    subtitle:"AAA", //locationsmatched[i].description,
+                    title:"locationsreturned.name", //locationsmatched[i].name,
+                    image_url:"locationsreturned.imageURL", //locationsmatched[i].imageURL,
+                    subtitle:"locationsreturned.description", //locationsmatched[i].description,
 
                     buttons:[
                         {
                             type:"web_url",
-                            url:"https://www.google.co.uk/", //maps/@" + data.longitude + "," + data.latitude + ",14z?hl=en",
+                            url:"https://www.google.co.uk", ///maps/@" + data.longitude + "," + data.latitude + ",14z?hl=en",
                             title:"Location"
                         },
                         {
@@ -96,7 +96,7 @@ var MongoClient = require('mongodb').MongoClient;
             jsonResponse[0].attachment.payload.elements.push(elementsArray[0]);
 
             jsonResponsestringify = JSON.stringify(jsonResponse);
-            res.send([jsonResponse]); //not string
+            res.send(jsonResponse); //not string
             console.log("Sent jsonResponse: " + jsonResponsestringify);         
 
         });
