@@ -54,15 +54,15 @@ var MongoClient = require('mongodb').MongoClient;
 
             //container for gallery result elements
             jsonResponse.push(
-            {
-                attachment:{
-                  type:"template",
-                  payload:{
-                    template_type:"generic",
-                    elements:[]
-                  }
-                }
-            }                   
+                {
+                    attachment:{
+                        type:"template",
+                        payload:{
+                            template_type:"generic",
+                            elements:[]
+                        }
+                    }
+                }                   
             );
 
             //iterate over results...
@@ -77,22 +77,21 @@ var MongoClient = require('mongodb').MongoClient;
                     subtitle:"AAA", //locationsmatched[i].description,
 
                     buttons:[
-                      {
-                        type:"web_url",
-                        url:"https://www.google.co.uk/maps/@" + data.longitude + "," + data.latitude + ",14z?hl=en",
-                        title:"Location"
-                      },
-                      {
-                        type:"web_url",
-                        url:"http://smokinggoatbar.com/shoreditch/",
-                        title:"Share"
-                      }        
+                        {
+                            type:"web_url",
+                            url:"https://www.google.co.uk/", //maps/@" + data.longitude + "," + data.latitude + ",14z?hl=en",
+                            title:"Location"
+                        },
+                        {
+                            type:"web_url",
+                            url:"http://smokinggoatbar.com/shoreditch/",
+                            title:"Share"
+                        }        
                     ]      
-                  
+
                 }
                 //########end of element#########
                 );
-            //}
 
             jsonResponse[0].attachment.payload.elements.push(elementsArray[0]);
 
