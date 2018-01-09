@@ -99,7 +99,7 @@ var MongoClient = require('mongodb').MongoClient;
 
             jsonResponsestringify = JSON.stringify(jsonResponse[0]);
             res.send(jsonResponse); //not string
-            console.log("Sent jsonResponse: " + jsonResponsestringify);         
+            console.log("Sent jsonResponse: " + jsonResponse);         
 
         });
 
