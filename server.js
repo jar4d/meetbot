@@ -72,7 +72,7 @@ var MongoClient = require('mongodb').MongoClient;
             elementsArray.push(
                 //########start of element#########
                 {                  
-                elements:{
+                
                     title:"AAA", //locationsmatched[i].name,
                     image_url:"AAA", //locationsmatched[i].imageURL,
                     subtitle:"AAA", //locationsmatched[i].description,
@@ -89,7 +89,7 @@ var MongoClient = require('mongodb').MongoClient;
                         title:"Share"
                       }        
                     ]      
-                  }
+                  
                 }
                 //########end of element#########
                 );
