@@ -7,6 +7,54 @@ app.listen(80, function() {
 
 app.get('/*', function(req, res) {
     var jsonResponse = [];
-    jsonResponse.push({ "text": "Hi. " + (Math.random() * 5 + 1).toFixed(0) + " is a lucky number..." });
+    jsonResponse.push(
+
+
+
+
+
+
+
+{
+            "attachment":{
+              "type":"template",
+              "payload":{
+                "template_type":"generic",
+                "elements":[
+                   //########start of element#########
+                   {
+                    "title":locationsreturned.name,
+                    "image_url":locationsreturned.imageURL,
+                    "subtitle":locationsreturned.description,
+
+                    "buttons":[
+                      {
+                        "type":"web_url",
+                        "url":"https://www.google.co.uk/maps/@" + data.longitude + "," + data.latitude + ",14z?hl=en",
+                        "title":"Location"
+                      },
+                      {
+                        "type":"web_url",
+                        "url":"http://smokinggoatbar.com/shoreditch/",
+                        "title":"Share"
+                      }        
+                    ]      
+                  },
+                   //########end of element#########
+
+                ]
+              }
+            }
+}    
+
+
+
+
+
+
+
+
+
+	);
     res.send(jsonResponse);
 });
