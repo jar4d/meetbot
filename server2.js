@@ -81,7 +81,7 @@ app.get('/*', function(req, res) {
                             console.log("item.name"+ item.name);
 
                             var nameVar = item.name;
-                            var image_urlVar = item.image_url;
+                            var image_urlVar = item.imageURL;
                             var descriptionVar = item.description;
 
                             elementsArray.push(
