@@ -66,8 +66,8 @@ var MongoClient = require('mongodb').MongoClient;
             );
 
             //iterate over results...
-            for(var i = 0; i < locationscount; ++i) {
-            console.log("looping  " + [i]);
+            //for(var i = 0; i < locationscount; ++i) {
+            //console.log("looping  " + [i]);
 
             elementsArray.push(
                 //########start of element#########
@@ -93,9 +93,9 @@ var MongoClient = require('mongodb').MongoClient;
                 }
                 //########end of element#########
                 );
-            }
+            //}
 
-            jsonResponse[0].attachment.payload.elements[0].push(elementsArray);
+            jsonResponse[0].attachment.payload.elements.push(elementsArray);
 
 
             jsonResponsestringify = JSON.stringify(jsonResponse);
