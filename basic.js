@@ -57,4 +57,6 @@ app.get('/*', function(req, res) {
 
 	);
     res.send(jsonResponse);
+    console.log("Sent jsonResponse: " + jsonResponse);         
+
 });
