@@ -27,14 +27,14 @@ var locationsmatched;
             var db = client.db('meetbot');
 
 
-            db.collection('locations').find({drink:data.drink, vibe:data.vibe}).count({}, function (findErr, result) {
+            db.collection('locations').find({}).count({}, function (findErr, result) { //{drink:data.drink, vibe:data.vibe}
                 if (findErr) throw findErr;
                 var locationscount = result;
                 console.log("locationscount: "+ locationscount);
                 client.close();
             });
 
-            db.collection('locations').find({drink:data.drink, vibe:data.vibe}, function (findErr, result) {
+            db.collection('locations').find({}, function (findErr, result) { //{drink:data.drink, vibe:data.vibe}
                 if (findErr) throw findErr;
                 var locationsmatched = result;
                 console.log("locationsmatched: "+ locationsmatched[0]);
