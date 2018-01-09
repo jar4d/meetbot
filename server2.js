@@ -76,7 +76,7 @@ MongoClient.connect(url, function (err, client) {
                                     }        
                                 ]      
 
-                            },
+                            }
                         );
 
                         jsonResponse[0].attachment.payload.elements.push(elementsArray[0]);
