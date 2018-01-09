@@ -34,7 +34,7 @@ var MongoClient = require('mongodb').MongoClient;
                 client.close();
             });
 
-            db.collection('locations').find({drink:data.drink, vibe:data.vibe}, function (findErr, result) {
+            db.collection('locations').findOne({drink:data.drink, vibe:data.vibe}, function (findErr, result) {
                 if (findErr) throw findErr;
                 var locationsmatched = result;
                 console.log("locationsmatched: "+ locationsmatched);
@@ -72,9 +72,9 @@ var MongoClient = require('mongodb').MongoClient;
             elementsArray.push(
                 //########start of element#########
                 {                  
-                    title:locationsmatched[0].name,
-                    image_url:locationsmatched[0].imageURL,
-                    subtitle:locationsmatched[0].description, 
+                    title:locationsmatched.name,
+                    image_url:locationsmatched.imageURL,
+                    subtitle:locationsmatched.description, 
 
                     buttons:[
                         {
