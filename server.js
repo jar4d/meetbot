@@ -59,7 +59,7 @@ var MongoClient = require('mongodb').MongoClient;
                   type:"template",
                   payload:{
                     template_type:"generic",
-                    elements:
+                    elements:[]
                   }
                 }
             }                   
@@ -95,7 +95,7 @@ var MongoClient = require('mongodb').MongoClient;
                 );
             }
 
-            jsonResponse[0].attachment.payload.elements.push(elementsArray);
+            jsonResponse[0].attachment.payload.elements[0].push(elementsArray);
 
 
             jsonResponsestringify = JSON.stringify(jsonResponse);
