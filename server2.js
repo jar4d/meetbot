@@ -109,6 +109,9 @@ MongoClient.connect(url, function (err, client) {
                                 });
 
                             jsonResponse[0].attachment.payload.elements.push(elementsArray[0]);
+                            var jsonResponsestringify = JSON.stringify(elementsArray);
+                            console.log("foreach element: " + jsonResponsestringify);         
+
                             }
 
                           });
