@@ -42,10 +42,9 @@ var locationsmatched;
                 client.close();
             });   
 
-            //console.log("locationscount: " + locationscount);
-            //console.log("locationsmatched: " + locationsmatched);
+            console.log("locationscount outside: " + locationscount);
+            console.log("locationsmatched outside: " + locationsmatched);
 
-            var jsonResponse = [];
             var elementsArray = [];
             var jsonResponse = [];
             //initial result response
