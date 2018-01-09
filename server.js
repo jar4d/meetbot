@@ -80,7 +80,7 @@ var MongoClient = require('mongodb').MongoClient;
                     buttons:[
                       {
                         type:"web_url",
-                        url:"http://www.google.co.uk", //"https://www.google.co.uk/maps/@" + data.longitude + "," + data.latitude + ",14z?hl=en",
+                        url:"https://www.google.co.uk/maps/@" + data.longitude + "," + data.latitude + ",14z?hl=en",
                         title:"Location"
                       },
                       {
@@ -97,11 +97,10 @@ var MongoClient = require('mongodb').MongoClient;
 
             jsonResponse[0].attachment.payload.elements.push(elementsArray[0]);
 
-
             jsonResponsestringify = JSON.stringify(jsonResponse[0]);
-            console.log("jsonResponse: " + jsonResponsestringify);         
-
             res.send(jsonResponsestringify);
+            console.log("Sent jsonResponse: " + jsonResponsestringify);         
+
         });
 
 }); 
