@@ -15,7 +15,15 @@ console.log('Chatfuel Bot-Server listening on port 80...')
 MongoClient.connect(url, function (err, client) {
     var db = client.db('meetbot');
     if (err) throw err;
-
+    //get stuff from API push
+    var data = req.query; 
+    //console.log('REQ Item: ', p);   // shows all data...
+    console.log('New query...'); 
+    console.log('Vibe: ', data.vibe);   
+    console.log('Drink: ', data.drink);       
+    console.log('longitude: ', data.longitude);   
+    console.log('latitude: ', data.latitude);  
+    
         db.collection('locations').find({drink:data.drink, vibe:data.vibe}, function (err, result) { //{drink:data.drink, vibe:data.vibe}
             var locationsmatched = result;
             if (err) throw err;
@@ -29,14 +37,7 @@ MongoClient.connect(url, function (err, client) {
                     app.get('/*', function(req, res) {
 
 
-                        //get stuff from API push
-                        var data = req.query; 
-                        //console.log('REQ Item: ', p);   // shows all data...
-                        console.log('New query...'); 
-                        console.log('Vibe: ', data.vibe);   
-                        console.log('Drink: ', data.drink);       
-                        console.log('longitude: ', data.longitude);   
-                        console.log('latitude: ', data.latitude);  
+
                     
             //db.collection.find( { field: { $gt: value1, $lt: value2 } } );
 
