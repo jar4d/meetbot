@@ -17,7 +17,7 @@ MongoClient.connect(url, function (err, client) {
     if (err) throw err;
 
         db.collection('locations').find({}, function (err, result) { //{drink:data.drink, vibe:data.vibe}
-            locationsmatched = result;
+            var locationsmatched = result;
             if (err) throw err;
             console.log("locationsmatched: "+ locationsmatched);
 
@@ -67,15 +67,17 @@ MongoClient.connect(url, function (err, client) {
                         //for(var i = 0; i < locationscount; ++i) {
                         //console.log("looping  " + [i]);
 
-
+                        console.log("line 70 check: "+ locationsmatched);
 
                           // Execute the each command, triggers for each document
-                          locationsmatched.forEach(function(err, item) {
+                          locationsmatched.each(function(err, item) {
+                            console.log("line 74 check: "+ locationsmatched);
+
                             elementsArray.push(
                                 {                  
-                                    title:item.name,
-                                    image_url:item.imageURL,
-                                    subtitle:item.description, 
+                                    title: item.name,
+                                    image_url: item.imageURL,
+                                    subtitle: item.description, 
 
                                     buttons:[
                                         {
