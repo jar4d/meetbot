@@ -42,7 +42,15 @@ MongoClient.connect(url, function (err, client) {
 
                         //container for gallery result elements
                         jsonResponse.push(
-                            var JsonBody                
+                            {
+                                attachment:{
+                                    type:"template",
+                                    payload:{
+                                        template_type:"generic",
+                                        elements:[]
+                                    }
+                                }
+                            }                   
                         );
 
                         //iterate over results...
@@ -50,7 +58,25 @@ MongoClient.connect(url, function (err, client) {
                         //console.log("looping  " + [i]);
 
                         elementsArray.push(
-                            var JsonElements
+                            {                  
+                                title:locationsmatched.name,
+                                image_url:locationsmatched.imageURL,
+                                subtitle:locationsmatched.description, 
+
+                                buttons:[
+                                    {
+                                        type:"web_url",
+                                        url:"https://www.google.co.uk/maps/@" + data.longitude + "," + data.latitude + ",14z?hl=en",
+                                        title:"Location"
+                                    },
+                                    {
+                                        type:"web_url",
+                                        url:"http://smokinggoatbar.com/shoreditch/",
+                                        title:"Share"
+                                    }        
+                                ]      
+
+                            },
                         );
 
                         jsonResponse[0].attachment.payload.elements.push(elementsArray[0]);
@@ -71,36 +97,3 @@ MongoClient.connect(url, function (err, client) {
 
 
 
-
-
-
-var JsonBody =      {
-                    attachment:{
-                        type:"template",
-                        payload:{
-                            template_type:"generic",
-                            elements:[]
-                        }
-                    }
-                }   
-
-
-var JsonElements = {                  
-                    title:locationsmatched.name,
-                    image_url:locationsmatched.imageURL,
-                    subtitle:locationsmatched.description, 
-
-                    buttons:[
-                        {
-                            type:"web_url",
-                            url:"https://www.google.co.uk/maps/@" + data.longitude + "," + data.latitude + ",14z?hl=en",
-                            title:"Location"
-                        },
-                        {
-                            type:"web_url",
-                            url:"http://smokinggoatbar.com/shoreditch/",
-                            title:"Share"
-                        }        
-                    ]      
-
-                },
