@@ -108,6 +108,8 @@ MongoClient.connect(url, function (err, client) {
                         res.send(jsonResponse); //not string
                         console.log("Sent jsonResponse: " + jsonResponsestringify);         
 
+
+
                     });
 
 
