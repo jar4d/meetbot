@@ -23,14 +23,14 @@ app.get('/*', function(req, res) {
                 "elements":[
                    //########start of element#########
                    {
-                    "title":locationsreturned.name,
-                    "image_url":locationsreturned.imageURL,
-                    "subtitle":locationsreturned.description,
+                    "title":"locationsreturned.name",
+                    "image_url":"locationsreturned.imageURL",
+                    "subtitle":"locationsreturned.description",
 
                     "buttons":[
                       {
                         "type":"web_url",
-                        "url":"https://www.google.co.uk/maps/@" + data.longitude + "," + data.latitude + ",14z?hl=en",
+                        "url":"https://www.google.co.uk",
                         "title":"Location"
                       },
                       {
