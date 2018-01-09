@@ -58,7 +58,7 @@ app.get('/*', function(req, res) {
 	);
     res.send(jsonResponse);
  	jsonResponsestringify = JSON.stringify(jsonResponse);
-    console.log("Sent jsonResponse: " + jsonResponsestringify[0]);
+    console.log("Sent jsonResponse: " + jsonResponsestringify);
 
 
 });
