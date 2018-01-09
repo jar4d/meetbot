@@ -99,7 +99,7 @@ app.get('/*', function(req, res) {
                                             title:"Location"
                                         },
                                         {
-                                            type:"element_share",
+                                            type:"web_url",
                                             url:"http://smokinggoatbar.com/shoreditch/",
                                             title:"Share"
                                         }        
