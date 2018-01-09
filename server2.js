@@ -16,12 +16,12 @@ MongoClient.connect(url, function (err, client) {
     var db = client.db('meetbot');
     if (err) throw err;
 
-        db.collection('locations').find({}, function (err, result) { //{drink:data.drink, vibe:data.vibe}
+        db.collection('locations').find({drink:data.drink, vibe:data.vibe}, function (err, result) { //{drink:data.drink, vibe:data.vibe}
             var locationsmatched = result;
             if (err) throw err;
             console.log("locationsmatched: "+ locationsmatched);
 
-            db.collection('locations').find({}).count({}, function (err, result) { //{drink:data.drink, vibe:data.vibe} db.collection.find( { field: { $gt: value1, $lt: value2 } } );
+            db.collection('locations').find({drink:data.drink, vibe:data.vibe}).count({}, function (err, result) { //{drink:data.drink, vibe:data.vibe} db.collection.find( { field: { $gt: value1, $lt: value2 } } );
                 var locationscount = result;
                 if (err) throw err;
                 console.log("locationscount: "+ locationscount);
@@ -70,7 +70,7 @@ MongoClient.connect(url, function (err, client) {
                         console.log("line 70 check: "+ locationsmatched);
 
                           // Execute the each command, triggers for each document
-                          locationsmatched.forEach(function(err, item) {
+                          locationsmatched.each(function(err, item) {
                             
                             // If the item is null (none left) then the cursor is exhausted/empty and closed
                             if(item == null) {
