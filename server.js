@@ -41,7 +41,7 @@ var locationsmatched = [];
                 console.log("locationsmatched: "+ locationsmatched);
 
                 client.close();
-            });   
+              
 
             console.log("locationscount outside: " + locationscount);
             console.log("locationsmatched outside: " + locationsmatched);
@@ -101,7 +101,7 @@ var locationsmatched = [];
             console.log("Sent jsonResponse: " + jsonResponsestringify);         
 
         });
-
+        }); //mongo brackets
 }); 
 
 
