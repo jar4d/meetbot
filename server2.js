@@ -5,11 +5,29 @@ var MongoClient = require('mongodb').MongoClient;
 var locationscount = [];
 var locationsmatched = [];
 var url = 'mongodb://meetbotuser:meetbot@ds247077.mlab.com:47077/meetbot';
+var JsonBody
 
-    MongoClient.connect(url, function (err, client) {
-        app.listen(80, () => {
-        console.log('Chatfuel Bot-Server listening on port 80...')
+
+app.listen(80, () => {
+console.log('Chatfuel Bot-Server listening on port 80...')
+});
+
+MongoClient.connect(url, function (err, client) {
+    var db = client.db('meetbot');
+    if (err) throw err;
+
+        db.collection('locations').find({}, function (err, result) { //{drink:data.drink, vibe:data.vibe}
+            var locationsmatched = result;
+            if (err) throw err;
+            console.log("locationsmatched: "+ locationsmatched);
+
+
         });
+    client.close();
+});
+
+
+
 
         app.get('/*', function(req, res) {
 
@@ -23,26 +41,20 @@ var url = 'mongodb://meetbotuser:meetbot@ds247077.mlab.com:47077/meetbot';
             console.log('longitude: ', data.longitude);   
             console.log('latitude: ', data.latitude);  
         
-//db.collection.find( { field: { $gt: value1, $lt: value2 } } );
+
 
             if (err) throw err;
             var db = client.db('meetbot');
 
 
-            db.collection('locations').find({}).count({}, function (findErr, result) { //{drink:data.drink, vibe:data.vibe}
+            db.collection('locations').find({}).count({}, function (findErr, result) { //{drink:data.drink, vibe:data.vibe} db.collection.find( { field: { $gt: value1, $lt: value2 } } );
                 if (findErr) throw findErr;
                 var locationscount = result;
                 console.log("locationscount: "+ locationscount);
                 client.close();
             });
 
-            db.collection('locations').find({}, function (findErr, result) { //{drink:data.drink, vibe:data.vibe}
-                if (findErr) throw findErr;
-                var locationsmatched = result;
-                console.log("locationsmatched: "+ locationsmatched);
-
-                client.close();
-            });   
+   
 
             console.log("locationscount outside: " + locationscount);
             console.log("locationsmatched outside: " + locationsmatched);
@@ -56,15 +68,7 @@ var url = 'mongodb://meetbotuser:meetbot@ds247077.mlab.com:47077/meetbot';
 
             //container for gallery result elements
             jsonResponse.push(
-                {
-                    attachment:{
-                        type:"template",
-                        payload:{
-                            template_type:"generic",
-                            elements:[]
-                        }
-                    }
-                }                   
+                JsonBody                
             );
 
             //iterate over results...
@@ -103,9 +107,18 @@ var url = 'mongodb://meetbotuser:meetbot@ds247077.mlab.com:47077/meetbot';
 
         });
 
-}); 
 
 
+
+JsonBody =                 {
+                    attachment:{
+                        type:"template",
+                        payload:{
+                            template_type:"generic",
+                            elements:[]
+                        }
+                    }
+                }   
 
 
 
