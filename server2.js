@@ -17,7 +17,7 @@ MongoClient.connect(url, function (err, client) {
     if (err) throw err;
 
         db.collection('locations').find({}, function (err, result) { //{drink:data.drink, vibe:data.vibe}
-            var locationsmatched = result;
+            locationsmatched = result;
             if (err) throw err;
             console.log("locationsmatched: "+ locationsmatched);
 
@@ -70,17 +70,17 @@ MongoClient.connect(url, function (err, client) {
 
 
                           // Execute the each command, triggers for each document
-                          locationsmatched.each(function(err, item) {
+                          locationsmatched.forEach(function(err, item) {
                             elementsArray.push(
                                 {                  
-                                    title:locationsmatched.name,
-                                    image_url:locationsmatched.imageURL,
-                                    subtitle:locationsmatched.description, 
+                                    title:item.name,
+                                    image_url:item.imageURL,
+                                    subtitle:item.description, 
 
                                     buttons:[
                                         {
                                             type:"web_url",
-                                            url:"https://www.google.co.uk/maps/@" + data.longitude + "," + data.latitude + ",14z?hl=en",
+                                            url:"https://www.google.co.uk",
                                             title:"Location"
                                         },
                                         {
