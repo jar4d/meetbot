@@ -72,6 +72,8 @@ MongoClient.connect(url, function (err, client) {
                           // Execute the each command, triggers for each document
                           locationsmatched.each(function(err, item) {
                             console.log("line 74 check: "+ locationsmatched);
+                            console.log("item.name"+ item.name);
+                            console.log("ocationsmatched.name"+ locationsmatched.name);
 
                             elementsArray.push(
                                 {                  
