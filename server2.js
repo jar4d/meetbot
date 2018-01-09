@@ -25,13 +25,23 @@ MongoClient.connect(url, function (err, client) {
                 var locationscount = result;
                 if (err) throw err;
                 console.log("locationscount: "+ locationscount);
-                client.close();
 
                     app.get('/*', function(req, res) {
+
+
                         //get stuff from API push
                         var data = req.query; 
-                        console.log("locationscount outside APP GET: " + locationscount);
-                        console.log("locationsmatched outside APP GET: " + locationsmatched);
+                        //console.log('REQ Item: ', p);   // shows all data...
+                        console.log('New query...'); 
+                        console.log('Vibe: ', data.vibe);   
+                        console.log('Drink: ', data.drink);       
+                        console.log('longitude: ', data.longitude);   
+                        console.log('latitude: ', data.latitude);  
+                    
+            //db.collection.find( { field: { $gt: value1, $lt: value2 } } );
+
+                        console.log("locationscount outside: " + locationscount);
+                        console.log("locationsmatched outside: " + locationsmatched);
 
                         var elementsArray = [];
                         var jsonResponse = [];
@@ -58,6 +68,7 @@ MongoClient.connect(url, function (err, client) {
                         //console.log("looping  " + [i]);
 
                         elementsArray.push(
+                            //########start of element#########
                             {                  
                                 title:locationsmatched.name,
                                 image_url:locationsmatched.imageURL,
@@ -77,9 +88,11 @@ MongoClient.connect(url, function (err, client) {
                                 ]      
 
                             }
-                        );
+                            //########end of element#########
+                            );
 
                         jsonResponse[0].attachment.payload.elements.push(elementsArray[0]);
+
                         jsonResponsestringify = JSON.stringify(jsonResponse);
                         res.send(jsonResponse); //not string
                         console.log("Sent jsonResponse: " + jsonResponsestringify);         
@@ -90,6 +103,7 @@ MongoClient.connect(url, function (err, client) {
             });
 
         });
+    client.close();
 });
 
 
