@@ -2,7 +2,7 @@
 var express = require('express');
 var app = express();
 var MongoClient = require('mongodb').MongoClient;
-var data;
+
 
     MongoClient.connect('mongodb://meetbotuser:meetbot@ds247077.mlab.com:47077/meetbot', function (err, client) {
         app.listen(80, () => {
@@ -44,6 +44,7 @@ var data;
             //console.log("locationscount: " + locationscount);
             //console.log("locationsmatched: " + locationsmatched);
 
+            var jsonResponse = [];
             var elementsArray = [];
             var jsonResponse = [];
             //initial result response
@@ -71,7 +72,7 @@ var data;
             elementsArray.push(
                 //########start of element#########
                 {                  
-                
+                elements:{
                     title:"AAA", //locationsmatched[i].name,
                     image_url:"AAA", //locationsmatched[i].imageURL,
                     subtitle:"AAA", //locationsmatched[i].description,
@@ -88,13 +89,13 @@ var data;
                         title:"Share"
                       }        
                     ]      
-                  
+                  }
                 }
                 //########end of element#########
                 );
             //}
 
-            jsonResponse[0].attachment.payload.elements[0].push(elementsArray[0]);
+            jsonResponse[0].attachment.payload.elements.push(elementsArray[0]);
 
 
             jsonResponsestringify = JSON.stringify(jsonResponse[0]);
