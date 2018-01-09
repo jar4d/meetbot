@@ -95,7 +95,7 @@ var MongoClient = require('mongodb').MongoClient;
                 );
             //}
 
-            jsonResponse[0].attachment.payload.elements.push(elementsArray);
+            jsonResponse[0].attachment.payload.elements.push(elementsArray[0]);
 
 
             jsonResponsestringify = JSON.stringify(jsonResponse[0]);
