@@ -25,7 +25,8 @@ var locationsmatched;
 
             if (err) throw err;
             var db = client.db('meetbot');
-
+            var locationscount = [];
+            var locationsmatched = [];
 
             db.collection('locations').find({}).count({}, function (findErr, result) { //{drink:data.drink, vibe:data.vibe}
                 if (findErr) throw findErr;
