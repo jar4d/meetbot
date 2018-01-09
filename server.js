@@ -103,8 +103,8 @@ app.get('/*', function(req, res) {
                                         }        
                                     ]      
                                 });
-
-                            jsonResponse[0].attachment.payload.elements.push(elementsArray);
+                            //something wrong with this line and duplicates
+                            jsonResponse[0].attachment.payload.elements.push(elementsArray[0]);
                             }
 
                           });
