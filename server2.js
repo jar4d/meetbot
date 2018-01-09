@@ -81,7 +81,7 @@ MongoClient.connect(url, function (err, client) {
                             elementsArray.push(
                                 {                  
                                     title: nameVar,
-                                    image_url: imageURLVar,
+                                    image_url: image_urlVar,
                                     subtitle: descriptionVar, 
 
                                     buttons:[
