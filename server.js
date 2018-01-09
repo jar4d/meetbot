@@ -2,7 +2,8 @@
 var express = require('express');
 var app = express();
 var MongoClient = require('mongodb').MongoClient;
-
+var locationscount;
+var locationsmatched;
 
     MongoClient.connect('mongodb://meetbotuser:meetbot@ds247077.mlab.com:47077/meetbot', function (err, client) {
         app.listen(80, () => {
@@ -24,8 +25,7 @@ var MongoClient = require('mongodb').MongoClient;
 
             if (err) throw err;
             var db = client.db('meetbot');
-            var locationscount;
-            var locationsmatched;
+
 
             db.collection('locations').find({drink:data.drink, vibe:data.vibe}).count({}, function (findErr, result) {
                 if (findErr) throw findErr;
