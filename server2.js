@@ -67,31 +67,42 @@ MongoClient.connect(url, function (err, client) {
                         //for(var i = 0; i < locationscount; ++i) {
                         //console.log("looping  " + [i]);
 
-                        elementsArray.push(
-                            //########start of element#########
-                            {                  
-                                title:locationsmatched.name,
-                                image_url:locationsmatched.imageURL,
-                                subtitle:locationsmatched.description, 
 
-                                buttons:[
-                                    {
-                                        type:"web_url",
-                                        url:"https://www.google.co.uk/maps/@" + data.longitude + "," + data.latitude + ",14z?hl=en",
-                                        title:"Location"
-                                    },
-                                    {
-                                        type:"web_url",
-                                        url:"http://smokinggoatbar.com/shoreditch/",
-                                        title:"Share"
-                                    }        
-                                ]      
 
-                            }
-                            //########end of element#########
-                            );
+                          // Execute the each command, triggers for each document
+                          locationsmatched.each(function(err, item) {
+                            elementsArray.push(
+                                {                  
+                                    title:locationsmatched.name,
+                                    image_url:locationsmatched.imageURL,
+                                    subtitle:locationsmatched.description, 
 
-                        jsonResponse[0].attachment.payload.elements.push(elementsArray[0]);
+                                    buttons:[
+                                        {
+                                            type:"web_url",
+                                            url:"https://www.google.co.uk/maps/@" + data.longitude + "," + data.latitude + ",14z?hl=en",
+                                            title:"Location"
+                                        },
+                                        {
+                                            type:"web_url",
+                                            url:"http://smokinggoatbar.com/shoreditch/",
+                                            title:"Share"
+                                        }        
+                                    ]      
+                                });
+
+                            jsonResponse[0].attachment.payload.elements.push(elementsArray[0]);
+
+                            // If the item is null then the cursor is exhausted/empty and closed
+                            if(item == null) {
+                              // Show that the cursor is closed
+                              locationsmatched.toArray(function(err, items) {
+                                assert.ok(err != null);
+                                // Let's close the db
+                                client.close();
+                              });
+                            };
+                          });
 
                         jsonResponsestringify = JSON.stringify(jsonResponse);
                         res.send(jsonResponse); //not string
@@ -103,7 +114,6 @@ MongoClient.connect(url, function (err, client) {
             });
 
         });
-    client.close();
 });
 
 
