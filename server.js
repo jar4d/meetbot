@@ -7,7 +7,8 @@ var locationsmatched = [];
 var url = 'mongodb://meetbotuser:meetbot@ds247077.mlab.com:47077/meetbot';
 var JsonBody
 var JsonElements
-var jsonResponse
+var jsonResponse = [];
+
 
 app.listen(80, () => {
 console.log('Chatfuel Bot-Server listening on port 80...')
@@ -38,7 +39,7 @@ app.get('/*', function(req, res) {
                         console.log("locationsmatched outside: " + locationsmatched);
 
                         var elementsArray = [];
-                        var jsonResponse = [];
+                        
                         //initial result response
                         //jsonResponse.push(
                         //    {"text": "Here are our picks for "+ data.vibe + " " + data.drink + " places less than 1/4 mile walk away."}
@@ -58,7 +59,8 @@ app.get('/*', function(req, res) {
                                 }
                             }                   
                         );
-
+                            jsonResponsestringify = JSON.stringify(jsonResponse);
+                        console.log("Sent jsonResponse 1: " + jsonResponsestringify);  
                         //iterate over results...
                         //for(var i = 0; i < locationscount; ++i) {
                         //console.log("looping  " + [i]);
