@@ -7,6 +7,7 @@ var locationsmatched = [];
 var url = 'mongodb://meetbotuser:meetbot@ds247077.mlab.com:47077/meetbot';
 var JsonBody
 var JsonElements
+var jsonResponse
 
 app.listen(80, () => {
 console.log('Chatfuel Bot-Server listening on port 80...')
