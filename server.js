@@ -10,8 +10,8 @@ var JsonElements
 var jsonResponse = [];
 
 
-app.listen(8080, () => {
-console.log('Chatfuel Bot-Server listening on port 80...')
+app.listen(80, () => {
+console.log('Chatfuel Bot-Server listening on port 8080...')
 });
 
 app.get('/*', function(req, res) {
