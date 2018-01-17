@@ -24,11 +24,18 @@ app.get('/*', function(req, res) {
     console.log('longitude: ', data.longitude);   
     console.log('latitude: ', data.latitude);  
 
+    var longitudeMIN = data.longitude - 0.01
+    var longitudeMAX = data.longitude + 0.01
+    var latitudeMIN   = data.latitude - 0.01
+    var latitudeMAX   = data.latitude + 0.01
+
+    var latitudeMIN = data.latitude - 0.01
+
     MongoClient.connect(url, function (err, client) {
         var db = client.db('meetbot');
         if (err) throw err;
 
-            db.collection('locations').find({drink:data.drink, vibe:data.vibe}, function (err, result) { 
+            db.collection('locations').find({drink:data.drink, vibe:data.vibe, longitude: { $gt: longitudeMIN, $lt: longitudeMAX }, latitude: { $gt: latitudeMIN, $lt: latitudeMAX }, }, function (err, result) { 
                 var locationsmatched = result;
                 if (err) throw err;
                 console.log("locationsmatched: "+ locationsmatched.length);
