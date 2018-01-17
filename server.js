@@ -28,15 +28,12 @@ app.get('/*', function(req, res) {
         var db = client.db('meetbot');
         if (err) throw err;
 
-            db.collection('locations').find({drink:data.drink, vibe:data.vibe}, function (err, result) { //{drink:data.drink, vibe:data.vibe}
+            db.collection('locations').find({drink:data.drink, vibe:data.vibe}, function (err, result) { 
                 var locationsmatched = result;
                 if (err) throw err;
                 console.log("locationsmatched: "+ locationsmatched);
                     
             //db.collection.find( { field: { $gt: value1, $lt: value2 } } );
-
-                        console.log("locationscount outside: " + locationscount);
-                        console.log("locationsmatched outside: " + locationsmatched);
 
                         var elementsArray = [];
                         
@@ -47,7 +44,6 @@ app.get('/*', function(req, res) {
 
                         //container for gallery result elements
                         jsonResponse.push(
-                            {"text": "Here are our picks for "+ data.vibe + " " + data.drink + " places less than 1/4 mile walk away."},
 
                             {
                                 attachment:{
@@ -64,8 +60,6 @@ app.get('/*', function(req, res) {
                         //iterate over results...
                         //for(var i = 0; i < locationscount; ++i) {
                         //console.log("looping  " + [i]);
-
-                        console.log("line 70 check: "+ locationsmatched);
 
                           // Execute the each command, triggers for each document
                           locationsmatched.each(function(err, item) {
