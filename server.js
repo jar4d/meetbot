@@ -31,7 +31,7 @@ app.get('/*', function(req, res) {
             db.collection('locations').find({drink:data.drink, vibe:data.vibe}, function (err, result) { 
                 var locationsmatched = result;
                 if (err) throw err;
-                console.log("locationsmatched: "+ locationsmatched);
+                console.log("locationsmatched: "+ locationsmatched.length);
                     
             //db.collection.find( { field: { $gt: value1, $lt: value2 } } );
 
