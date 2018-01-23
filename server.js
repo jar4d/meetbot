@@ -36,7 +36,12 @@ app.get('/*', function(req, res) {
         var db = client.db('meetbot');
         if (err) throw err;
 
-            db.collection('locations').find({drink:data.drink, vibe:data.vibe, longitude: { $gt: longitudeMIN, $lt: longitudeMAX }, latitude: { $gt: latitudeMIN, $lt: latitudeMAX }, }, function (err, result) { 
+            db.collection('locations').find({
+                drink:data.drink, 
+                vibe:data.vibe, 
+                //longitude: { $gt: longitudeMIN, $lt: longitudeMAX }, 
+                //latitude: { $gt: latitudeMIN, $lt: latitudeMAX }, 
+            }, function (err, result) { 
                 var locationsmatched = result;
                 if (err) throw err;
                 console.log("locationsmatched: "+ locationsmatched.length);
