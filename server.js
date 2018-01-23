@@ -27,10 +27,10 @@ app.get('/*', function(req, res) {
     console.log('longitude: ', data.longitude);   
     console.log('latitude: ', data.latitude);  
 
-    var longitudeMIN = data.longitude - 0.05
-    var longitudeMAX = data.longitude + 0.05
-    var latitudeMIN   = data.latitude - 0.05
-    var latitudeMAX   = data.latitude + 0.05
+    var longitudeMIN = data.longitude - 1
+    var longitudeMAX = data.longitude + 1
+    var latitudeMIN   = data.latitude - 1
+    var latitudeMAX   = data.latitude + 1
 
     MongoClient.connect(url, function (err, client) {
         var db = client.db('meetbot');
