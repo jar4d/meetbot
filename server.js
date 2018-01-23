@@ -42,10 +42,8 @@ app.get('/*', function(req, res) {
                 vibe:data.vibe, 
                 //longitude: { $gt: longitudeMIN, $lt: longitudeMAX }, 
                 //latitude: { $gt: latitudeMIN, $lt: latitudeMAX }, 
-            }
-            .limit(5).toArray( 
-
-            function (err, result) { 
+            },
+            { limit : 3 }, function (err, result) { 
                 var locationsmatched = result;
                 if (err) throw err;
                 console.log("locationsmatched: "+ locationsmatched.length);
@@ -131,7 +129,7 @@ app.get('/*', function(req, res) {
 
 
 
-                    }));
+                    });
 
 
             
