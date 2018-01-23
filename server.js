@@ -43,7 +43,7 @@ app.get('/*', function(req, res) {
                 //longitude: { $gt: longitudeMIN, $lt: longitudeMAX }, 
                 //latitude: { $gt: latitudeMIN, $lt: latitudeMAX }, 
             }
-            .limit( 5 ), 
+            .limit(5).toArray( 
 
             function (err, result) { 
                 var locationsmatched = result;
@@ -131,7 +131,7 @@ app.get('/*', function(req, res) {
 
 
 
-                    });
+                    }));
 
 
             
