@@ -5,13 +5,13 @@ var MongoClient = require('mongodb').MongoClient;
 var locationscount = [];
 var locationsmatched = [];
 var url = 'mongodb://meetbotuser:meetbot@ds247077.mlab.com:47077/meetbot';
-var JsonBody
-var JsonElements
+var JsonBody;
+var JsonElements;
 var jsonResponse = [];
-var longitudeMIN 
-var longitudeMAX 
-var latitudeMIN  
-var latitudeMAX
+var longitudeMIN;
+var longitudeMAX;
+var latitudeMIN;
+var latitudeMAX;
 
 app.listen(80, () => {
 console.log('Chatfuel Bot-Server listening on port 8080...')
