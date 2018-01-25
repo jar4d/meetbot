@@ -84,9 +84,9 @@ app.get('/*', function(req, res) {
                               // Show that the cursor is closed
                               locationsmatched.toArray(function(err, items) {
                                 //send stuff
-                                jsonResponsestringify = JSON.stringify(jsonResponse);
+                                jsonResponsestringify = {"text": "Uh oh. Nothing found :-("}
                                 res.send(jsonResponse); //not string
-                                console.log("Sent jsonResponse: " + jsonResponsestringify);     
+                                console.log(jsonResponsestringify);     
                                 // Let's close the db
                                 client.close();
                               });
@@ -120,7 +120,7 @@ app.get('/*', function(req, res) {
                                                         //something wrong with this line and duplicates
                             //something wrong with this line and duplicates
 
-                            jsonResponse[0].attachment.payload.elements.push(elementsArray[0]);
+                            jsonResponse[0].attachment.payload.elements.push(elementsArray[item]);
                             }
 
                           });
