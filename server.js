@@ -13,7 +13,6 @@ var longitudeMAX;
 var latitudeMIN;
 var latitudeMAX;
 var i = 0;
-
 app.listen(80, () => {
 console.log('Chatfuel Bot-Server listening on port 8080...')
 });
@@ -87,12 +86,12 @@ app.get('/*', function(req, res) {
                                 //send stuff
                                 jsonResponsestringify = JSON.stringify(jsonResponse);
                                 res.send(jsonResponse); //not string
-                                console.log(jsonResponsestringify);     
+                                console.log("Sent jsonResponse: " + jsonResponsestringify);     
                                 // Let's close the db
                                 client.close();
                               });
                             }else{
-                            
+
                             console.log("item.name"+ item.name);
 
                             var nameVar = item.name;
