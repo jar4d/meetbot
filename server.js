@@ -85,7 +85,7 @@ app.get('/*', function(req, res) {
                               // Show that the cursor is closed
                               locationsmatched.toArray(function(err, items) {
                                 //send stuff
-                                jsonResponsestringify = {"text": "Uh oh. Nothing found :-("}
+                                jsonResponsestringify = JSON.stringify(jsonResponse);
                                 res.send(jsonResponse); //not string
                                 console.log(jsonResponsestringify);     
                                 // Let's close the db
