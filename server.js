@@ -40,8 +40,8 @@ app.get('/*', function(req, res) {
             .find({
                 drink:data.drink, 
                 vibe:data.vibe, 
-                longitude: { $gt: longitudeMIN, $lt: longitudeMAX }, 
-                latitude: { $gt: latitudeMIN, $lt: latitudeMAX }, 
+                //longitude: { $gt: longitudeMIN, $lt: longitudeMAX }, 
+                //latitude: { $gt: latitudeMIN, $lt: latitudeMAX }, 
             },
             { limit : 3 }, function (err, result) { 
                 var locationsmatched = result;
