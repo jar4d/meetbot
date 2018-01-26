@@ -53,7 +53,7 @@ app.get('/*', function(req, res) {
                 {
                     'properties.drink':"cocktails", 
                     'properties.vibe':"fancy" 
-                }, 
+                } 
                //{ limit : 3 },
            ).toArray(
 
@@ -62,8 +62,6 @@ app.get('/*', function(req, res) {
                 if (err) throw err;
                 console.log("locationsmatched: "+ locationsmatched.length);
                     
-            //db.collection.find( { field: { $gt: value1, $lt: value2 } } );
-
                         var elementsArray = [];
                         
                         //initial result response
@@ -86,9 +84,6 @@ app.get('/*', function(req, res) {
                         );
                             jsonResponsestringify = JSON.stringify(jsonResponse);
                         console.log("Sent jsonResponse 1: " + jsonResponsestringify);  
-                        //iterate over results...
-                        //for(var i = 0; i < locationscount; ++i) {
-                        //console.log("looping  " + [i]);
 
                           // Execute the each command, triggers for each document
                           locationsmatched.each(function(err, item) {
