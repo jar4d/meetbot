@@ -46,6 +46,7 @@ app.get('/*', function(req, res) {
             { limit : 3 }, 
 */
            db.collection('locations').find(
+               { limit : 3 },
                {
                     geometry :
                        { $near :
@@ -61,7 +62,7 @@ app.get('/*', function(req, res) {
                     'properties.drink':"cocktails", 
                     'properties.vibe':"fancy" 
                 }, 
-               //{ limit : 3 },
+               //
 
 
             function (err, result) { 
@@ -113,7 +114,7 @@ app.get('/*', function(req, res) {
                               });
                             }else{
 
-                            console.log("item.name"+ item.name);
+                            console.log("item.name"+ item.properties.name);
 
                             var nameVar = item.name;
                             var image_urlVar = item.imageURL;
