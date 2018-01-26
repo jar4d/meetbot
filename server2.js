@@ -86,7 +86,7 @@ app.get('/*', function(req, res) {
                         console.log("Sent jsonResponse 1: " + jsonResponsestringify);  
 
                           // Execute the each command, triggers for each document
-                          locationsmatched.each(function(err, item) {
+                          result.each(function(err, item) {
                             
                             // If the item is null (none left) then the cursor is exhausted/empty and closed
                             if(item == null) {
