@@ -46,7 +46,8 @@ app.get('/*', function(req, res) {
             { limit : 3 }, 
 */
            db.collection('locations').find(
-               {geometry :
+               {
+                    geometry :
                        { $near :
                           {
                             $geometry : {
@@ -58,9 +59,9 @@ app.get('/*', function(req, res) {
                },
                 {
                     'properties.drink':"cocktails", 
-                    'properties.vibe':"fancy", 
+                    'properties.vibe':"fancy" 
                 }, 
-               { limit : 3 },
+               //{ limit : 3 },
 
 
             function (err, result) { 
