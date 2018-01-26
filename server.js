@@ -52,7 +52,7 @@ app.get('/*', function(req, res) {
                           {
                             $geometry : {
                                type : "Point" ,
-                               coordinates : [data.longitude, data.latitude] },
+                               coordinates : [data.latitude, data.longitude] },
                             $maxDistance : 10000
                           }
                        }  
