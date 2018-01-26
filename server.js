@@ -12,6 +12,11 @@ var longitudeMIN;
 var longitudeMAX;
 var latitudeMIN;
 var latitudeMAX;
+float longitudeData;
+float latitudeData;
+
+
+
 var i = 0;
 app.listen(80, () => {
 console.log('Chatfuel Bot-Server listening on port 8080...')
@@ -21,10 +26,12 @@ app.get('/*', function(req, res) {
    //get stuff from API push
     var data = req.query; 
     //console.log('REQ Item: ', p);   // shows all data...
+    longitudeData = data.longitude;
+
     console.log('New query...'); 
     console.log('Vibe: ', data.vibe);   
     console.log('Drink: ', data.drink);       
-    console.log('longitude: ', data.longitude);   
+    console.log('longitude: ', longitudeData);   
     console.log('latitude: ', data.latitude);  
 
     var longitudeMIN = data.longitude - 10
@@ -53,7 +60,7 @@ app.get('/*', function(req, res) {
                           {
                             $geometry : {
                                type : "Point" ,
-                               coordinates : [-0.086499, 51.514554] },
+                               coordinates : [longitudeData, 51.514554] },
                             $maxDistance : 500
                           }
                        }  
