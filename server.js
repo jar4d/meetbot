@@ -35,29 +35,35 @@ app.get('/*', function(req, res) {
     MongoClient.connect(url, function (err, client) {
         var db = client.db('meetbot');
         if (err) throw err;
-
-
-
+/*
+            db.collection('locations')
+            .find({
+                drink:data.drink, 
+                vibe:data.vibe, 
+                //longitude: { $gt: longitudeMIN, $lt: longitudeMAX }, 
+                //latitude: { $gt: latitudeMIN, $lt: latitudeMAX }, 
+            },
+            { limit : 3 }, 
+*/
            db.collection('locations').find(
-               {
-                    drink:data.drink, 
-                    vibe:data.vibe, 
-                }, 
-               {
-                   geometry :
-                   
-                   { $near :
-                      {
-                        $geometry : {
-                           type : "Point" ,
-                           coordinates : [-0.086499, 51.514554] },
-                        $maxDistance : 100000
-                      }
-                   }  
+               {geometry :
+                       { $near :
+                          {
+                            $geometry : {
+                               type : "Point" ,
+                               coordinates : [-0.086499, 51.514554] },
+                            $maxDistance : 100000
+                          }
+                       }  
                },
+                {
+                    'properties.drink':"cocktails", 
+                    'properties.vibe':"fancy", 
+                }, 
                { limit : 3 },
 
-                function (err, result) { 
+
+            function (err, result) { 
                 var locationsmatched = result;
                 if (err) throw err;
                 console.log("locationsmatched: "+ locationsmatched.length);
