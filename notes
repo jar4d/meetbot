@@ -1,6 +1,20 @@
 
-
+sudo apt-get update
+sudo apt-get install nodejs
+sudo apt-get install npm
 npm install mongodb --save
+sudo apt install git
+npm install express --save
+
+
+ root@usermod -aG sudo jar4d
+
+
+
+
+
+
+
 
 mongo db
 https://mlab.com/databases/meetbot#users
@@ -9,15 +23,33 @@ P: meetbot
 
 collection = locations
 
-{
-    "_id": {
-        "$oid": "5a523123f36d2837f591b4e5"
-    },
-    "drink": "cocktail",
-    "vibe": "hipster",
-    "longitude": "51.5141856",
-    "latitude": "-0.1341727",
-    "name": "Bar Termini",
-    "description": "Espresso and cocktail bar",
-    "imageURL": "https://media.timeout.com/images/103939239/630/472/image.jpg"
-}
+LOG IN VIA TERMINAL
+mongo ds247077.mlab.com:47077/meetbot -u meetbotuser -p meetbot
+
+IMPORT A CSV FILE
+http://geojson.io/#map=12/51.5192/-0.0498
+-- Delete this: {"type": "FeatureCollection","features": []}
+
+-- in terminal:
+
+IMPORT GEOJSON FILE
+mongoimport -h ds247077.mlab.com:47077 -d meetbot -c locations -u meetbotuser -p meetbot --file /Users/J/downloads/FILE.geojson --jsonArray
+
+SETUP GEO IN MONGODB
+db.locations.createIndex({geometry:"2dsphere"});
+
+QUERY IT: (note this is LONG, LAT - opposite to google maps)
+   db.locations.find({
+       geometry :
+       
+       { $near :
+          {
+            $geometry : {
+               type : "Point" ,
+               coordinates : [-0.086499, 51.514554] },
+            $maxDistance : 1000
+          }
+       }
+       
+       
+       });
