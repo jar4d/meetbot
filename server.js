@@ -46,7 +46,7 @@ app.get('/*', function(req, res) {
             { limit : 3 }, 
 */
            db.collection('locations').find(
-               { limit : 3 },
+               
                {
                     geometry :
                        { $near :
@@ -54,7 +54,7 @@ app.get('/*', function(req, res) {
                             $geometry : {
                                type : "Point" ,
                                coordinates : [-0.086499, 51.514554] },
-                            $maxDistance : 1000
+                            $maxDistance : 500
                           }
                        }  
                },
