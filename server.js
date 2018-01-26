@@ -121,9 +121,9 @@ app.get('/*', function(req, res) {
 
                             elementsArray.push(
                                 {                  
-                                    title: item.name,
-                                    image_url: item.imageURL,
-                                    subtitle: item.description, 
+                                    title: item.properties.name,
+                                    image_url: item.properties.imageURL,
+                                    subtitle: item.properties.description, 
 
                                     buttons:[
                                         {
