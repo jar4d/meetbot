@@ -8,11 +8,7 @@ var url = 'mongodb://meetbotuser:meetbot@ds247077.mlab.com:47077/meetbot';
 var JsonBody;
 var JsonElements;
 var jsonResponse = [];
-var longitudeMIN;
-var longitudeMAX;
-var latitudeMIN;
-var latitudeMAX;
-
+var data;
 
 var i = 0;
 app.listen(80, () => {
@@ -21,7 +17,7 @@ console.log('Chatfuel Bot-Server listening on port 8080...')
 
 app.get('/*', function(req, res) {
    //get stuff from API push
-    data = req.query; 
+    var data = req.query; 
     //console.log('REQ Item: ', p);   // shows all data...
     longitudeData = data.longitude;
 
@@ -30,11 +26,6 @@ app.get('/*', function(req, res) {
     console.log('Drink: ', data.drink);       
     console.log('longitude: ', data.longitude);   
     console.log('latitude: ', data.latitude);  
-
-    var longitudeMIN = data.longitude - 10
-    var longitudeMAX = data.longitude + 10
-    var latitudeMIN   = data.latitude - 10
-    var latitudeMAX   = data.latitude + 10
 
     MongoClient.connect(url, function (err, client) {
         var db = client.db('meetbot');
