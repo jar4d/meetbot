@@ -8,60 +8,56 @@ var url = 'mongodb://meetbotuser:meetbot@ds247077.mlab.com:47077/meetbot';
 var JsonBody;
 var JsonElements;
 var jsonResponse = [];
-var i = 0;
+var data;
 
+var i = 0;
 app.listen(80, () => {
-console.log('Chatfuel Bot-Server listening on port 8080...')
+console.log('Chatfuel Bot-Server listening on port 80...')
 });
 
 app.get('/*', function(req, res) {
    //get stuff from API push
     var data = req.query; 
     //console.log('REQ Item: ', p);   // shows all data...
+    longitudeData = data.longitude;
+
     console.log('New query...'); 
     console.log('Vibe: ', data.vibe);   
     console.log('Drink: ', data.drink);       
     console.log('longitude: ', data.longitude);   
     console.log('latitude: ', data.latitude);  
 
-
     MongoClient.connect(url, function (err, client) {
         var db = client.db('meetbot');
         if (err) throw err;
-/*
-            db.collection('locations')
-            .find({
-                drink:data.drink, 
-                vibe:data.vibe, 
-                //longitude: { $gt: longitudeMIN, $lt: longitudeMAX }, 
-                //latitude: { $gt: latitudeMIN, $lt: latitudeMAX }, 
-            },
-            { limit : 3 }, 
-*/
+
            db.collection('locations').find(
+               
                {
                     geometry :
                        { $near :
                           {
                             $geometry : {
                                type : "Point" ,
-                               coordinates : [-0.086499, 51.514554] },
-                            $maxDistance : 1000
+                               coordinates : [-0.07858826, 51.520557] },
+                            $maxDistance : 2000
                           }
                        }  
                },
                 {
-                    'properties.drink':"cocktails", 
-                    'properties.vibe':"fancy" 
-                } 
-               //{ limit : 3 },
-           ).toArray(
+                    'properties.drink':data.drink, 
+                    'properties.vibe':data.vibe
+                }, 
+               //
+
 
             function (err, result) { 
                 var locationsmatched = result;
                 if (err) throw err;
                 console.log("locationsmatched: "+ locationsmatched.length);
                     
+            //db.collection.find( { field: { $gt: value1, $lt: value2 } } );
+
                         var elementsArray = [];
                         
                         //initial result response
@@ -82,11 +78,12 @@ app.get('/*', function(req, res) {
                                 }
                             }                   
                         );
-                            jsonResponsestringify = JSON.stringify(jsonResponse);
+                        
+                        jsonResponsestringify = JSON.stringify(jsonResponse);
                         console.log("Sent jsonResponse 1: " + jsonResponsestringify);  
 
                           // Execute the each command, triggers for each document
-                          result.each(function(err, item) {
+                          locationsmatched.each(function(err, item) {
                             
                             // If the item is null (none left) then the cursor is exhausted/empty and closed
                             if(item == null) {
@@ -101,7 +98,7 @@ app.get('/*', function(req, res) {
                               });
                             }else{
 
-                            console.log("item.name"+ item.name);
+                            console.log("item.name"+ item.properties.name);
 
                             var nameVar = item.name;
                             var image_urlVar = item.imageURL;
@@ -109,9 +106,9 @@ app.get('/*', function(req, res) {
 
                             elementsArray.push(
                                 {                  
-                                    title: item.name,
-                                    image_url: item.imageURL,
-                                    subtitle: item.description, 
+                                    title: item.properties.name,
+                                    image_url: item.properties.imageURL,
+                                    subtitle: item.properties.description, 
 
                                     buttons:[
                                         {
@@ -126,11 +123,12 @@ app.get('/*', function(req, res) {
                                         }        
                                     ]      
                                 });
-                                                        //something wrong with this line and duplicates
-                            //something wrong with this line and duplicates
 
-                            jsonResponse[0].attachment.payload.elements.push(elementsArray[i]);
-                            i = i+1;
+                                if(i<4){
+                                    jsonResponse[0].attachment.payload.elements.push(elementsArray[i]);
+                                }
+                                i = i+1;
+
                             }
 
                           });
@@ -141,7 +139,7 @@ app.get('/*', function(req, res) {
 
                     });
 
-        
+
             
 
         });
