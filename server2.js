@@ -19,8 +19,10 @@ console.log('Chatfuel Bot-Server listening on port 80...')
 app.get('/*', function(req, res) {
    //get stuff from API push
     var data = req.query; 
-    //console.log('REQ Item: ', p);   // shows all data...
-    coordinatesResponse.push(data.latitude, data.longitude); 
+    coordinatesResponse.push(data.latitude); 
+    coordinatesResponse.push(data.longitude); 
+    var coordinatesResponsestringify = JSON.stringify(coordinatesResponse);
+    console.log("coordinatesResponsestringify: " + coordinatesResponsestringify);  
 
     console.log('New query...'); 
     console.log('Vibe: ', data.vibe);   
@@ -41,9 +43,9 @@ app.get('/*', function(req, res) {
                           {
                             $geometry : {
                                type : "Point" ,
-                               coordinates : coordinatesResponse 
+                               coordinates : coordinatesResponse //[-0.07858826, 51.520557]
                             },
-                            $maxDistance : 2000
+                            $maxDistance : 20000
                           }
                        }  
                },
