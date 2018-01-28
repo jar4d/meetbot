@@ -116,8 +116,9 @@ app.get('/*', function(req, res) {
                                     buttons:[
                                         {
                                             type:"web_url",
-                                            url:"https://maps.google.com/?q=" + item.geometry.coordinates[0] + "," + item.geometry.coordinates[1] + ",14z?hl=en",
-                                            title:"Location"
+                                            url:"https://www.google.com/maps/dir/{{latitude}},{{longitude}}/" + item.geometry.coordinates[0] + "," + item.geometry.coordinates[1],
+
+                                            title:"Map"
                                         },
                                         {
                                             type:"web_url",
