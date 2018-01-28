@@ -44,7 +44,7 @@ app.get('/*', function(req, res) {
                           {
                             $geometry : {
                                type : "Point" ,
-                               coordinates : [coordinatesResponse] //coordinatesResponse //[-0.07858826, 51.520557]
+                               coordinates : [ parseFloat(data.longitude), parseFloat(data.latitude) ] //coordinatesResponse //[-0.07858826, 51.520557]
                             },
                             $maxDistance : 20000
                           }
