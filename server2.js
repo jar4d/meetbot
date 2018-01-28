@@ -123,7 +123,7 @@ app.get('/*', function(req, res) {
                                             type:"web_url",
                                             url:"http://smokinggoatbar.com/shoreditch/",
                                             title:"More"
-                                        }     
+                                        },     
                                         {
                                             type:"element_share"
                                         }                                               
