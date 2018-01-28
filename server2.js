@@ -21,8 +21,7 @@ app.get('/*', function(req, res) {
     var data = req.query; 
     coordinatesResponse.push(data.longitude); 
     coordinatesResponse.push(data.latitude); 
-    var coordinatesResponsestringify = JSON.stringify(coordinatesResponse);
-    console.log("coordinatesResponsestringify: " + coordinatesResponsestringify);  
+    console.log("coordinatesResponse: " + coordinatesResponse);  
 
     console.log('New query...'); 
     console.log('Vibe: ', data.vibe);   
