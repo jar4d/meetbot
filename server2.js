@@ -19,9 +19,6 @@ console.log('Chatfuel Bot-Server listening on port 80...')
 app.get('/*', function(req, res) {
    //get stuff from API push
     var data = req.query; 
-    coordinatesResponse.push(data.longitude); 
-    coordinatesResponse.push(data.latitude); 
-    console.log("coordinatesResponse: " + coordinatesResponse);  
 
     console.log('New query...'); 
     console.log('Vibe: ', data.vibe);   
@@ -130,9 +127,7 @@ app.get('/*', function(req, res) {
                                     ]      
                                 });
 
-                                if(i<4){
-                                    jsonResponse[0].attachment.payload.elements.push(elementsArray[i]);
-                                }
+                                jsonResponse[0].attachment.payload.elements.push(elementsArray[i]);
                                 i = i+1;
 
                             }
