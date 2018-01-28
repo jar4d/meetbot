@@ -31,6 +31,8 @@ app.get('/*', function(req, res) {
 
 
     MongoClient.connect(url, function (err, client) {
+        console.log("coordinatesResponse: " + coordinatesResponse);  
+
         var db = client.db('meetbot');
         if (err) throw err;
 
