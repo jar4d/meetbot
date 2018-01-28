@@ -20,7 +20,7 @@ app.get('/*', function(req, res) {
    //get stuff from API push
     var data = req.query; 
     //console.log('REQ Item: ', p);   // shows all data...
-    coordinatesResponse.push(data.longitude, data.latitude); 
+    coordinatesResponse.push(data.latitude, data.longitude); 
 
     console.log('New query...'); 
     console.log('Vibe: ', data.vibe);   
