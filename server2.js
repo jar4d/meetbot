@@ -42,7 +42,7 @@ app.get('/*', function(req, res) {
                           {
                             $geometry : {
                                type : "Point" ,
-                               coordinates : coordinatesResponse //[-0.07858826, 51.520557]
+                               coordinates : [-0.087548964,51.53961] //coordinatesResponse //[-0.07858826, 51.520557]
                             },
                             $maxDistance : 20000
                           }
