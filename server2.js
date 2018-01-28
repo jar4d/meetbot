@@ -116,14 +116,17 @@ app.get('/*', function(req, res) {
                                     buttons:[
                                         {
                                             type:"web_url",
-                                            url:"https://www.google.co.uk/maps/@" + item.longitude + "," + item.latitude + ",14z?hl=en",
+                                            url:"https://www.google.co.uk/maps/@" + item.geometry.coordinates[0] + "," + item.geometry.coordinates[1] + ",14z?hl=en",
                                             title:"Location"
                                         },
                                         {
                                             type:"web_url",
                                             url:"http://smokinggoatbar.com/shoreditch/",
-                                            title:"Share"
-                                        }        
+                                            title:"More"
+                                        }     
+                                        {
+                                            type:"element_share"
+                                        }                                               
                                     ]      
                                 });
 
