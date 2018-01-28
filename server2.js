@@ -9,6 +9,7 @@ var JsonBody;
 var JsonElements;
 var jsonResponse = [];
 var data;
+var coordinatesResponse = [];
 
 var i = 0;
 app.listen(80, () => {
@@ -19,13 +20,14 @@ app.get('/*', function(req, res) {
    //get stuff from API push
     var data = req.query; 
     //console.log('REQ Item: ', p);   // shows all data...
-    longitudeData = data.longitude;
+    coordinatesResponse.push(data.longitude, data.latitude); 
 
     console.log('New query...'); 
     console.log('Vibe: ', data.vibe);   
     console.log('Drink: ', data.drink);       
     console.log('longitude: ', data.longitude);   
     console.log('latitude: ', data.latitude);  
+
 
     MongoClient.connect(url, function (err, client) {
         var db = client.db('meetbot');
@@ -39,7 +41,8 @@ app.get('/*', function(req, res) {
                           {
                             $geometry : {
                                type : "Point" ,
-                               coordinates : [-0.07858826, 51.520557] },
+                               coordinates : coordinatesResponse 
+                            },
                             $maxDistance : 2000
                           }
                        }  
