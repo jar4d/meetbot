@@ -46,7 +46,7 @@ app.get('/*', function(req, res) {
                                type : "Point" ,
                                coordinates : [ parseFloat(data.longitude), parseFloat(data.latitude) ] //coordinatesResponse //[-0.07858826, 51.520557]
                             },
-                            $maxDistance : 20000
+                            $maxDistance : 1000
                           }
                        }  
                },
