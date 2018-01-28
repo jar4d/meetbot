@@ -19,8 +19,8 @@ console.log('Chatfuel Bot-Server listening on port 80...')
 app.get('/*', function(req, res) {
    //get stuff from API push
     var data = req.query; 
-    coordinatesResponse.push(data.latitude); 
     coordinatesResponse.push(data.longitude); 
+    coordinatesResponse.push(data.latitude); 
     var coordinatesResponsestringify = JSON.stringify(coordinatesResponse);
     console.log("coordinatesResponsestringify: " + coordinatesResponsestringify);  
 
