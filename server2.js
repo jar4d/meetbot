@@ -107,7 +107,7 @@ app.get('/*', function(req, res) {
                                     buttons:[
                                         {
                                             type:"web_url",
-                                            url:"https://www.google.com/maps/dir/?api=1&origin=" + data.longitude + "," + data.latitude + "&destination=" + item.geometry.coordinates[0] + "," + item.geometry.coordinates[1] "&travelmode=walking"
+                                            url:"https://www.google.com/maps/dir/?api=1&origin=" + data.longitude + "," + data.latitude + "&destination=" + item.geometry.coordinates[0] + "," + item.geometry.coordinates[1] + "&travelmode=walking",
                                             title:"Map"
                                         },
                                         {
