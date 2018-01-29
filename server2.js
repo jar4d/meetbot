@@ -123,8 +123,10 @@ app.get('/*', function(req, res) {
 
                                 //need to limit this to 3...
 
-                                jsonResponse[0].attachment.payload.elements.push(elementsArray[i]);
-                                if(i<4){i = i+1;}
+                                if(i<4){
+                                    jsonResponse[0].attachment.payload.elements.push(elementsArray[i]);
+                                    i = i+1;
+                                }else{}
                             }
                           });
                     });
