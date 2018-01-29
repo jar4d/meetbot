@@ -112,7 +112,7 @@ app.get('/*', function(req, res) {
                                         },
                                         {
                                             type:"web_url",
-                                            url:data.moreURL,
+                                            url:item.moreURL,
                                             title:"More"
                                         },     
                                         {
