@@ -112,7 +112,7 @@ app.get('/*', function(req, res) {
                                         },
                                         {
                                             type:"web_url",
-                                            url:"http://smokinggoatbar.com/shoreditch/",
+                                            url:data.moreURL,
                                             title:"More"
                                         },     
                                         {
