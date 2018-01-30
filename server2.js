@@ -30,7 +30,11 @@ app.get('/*', function(req, res) {
         if (err) throw err;
 
            db.collection('locations').find(
-               
+                {
+                    'properties.drink':data.drink, 
+                    'properties.vibe':data.vibe
+                },
+                               
                {
                     geometry :
                        { $near :
@@ -43,10 +47,7 @@ app.get('/*', function(req, res) {
                           }
                        }  
                },
-                {
-                    'properties.drink':data.drink, 
-                    'properties.vibe':data.vibe
-                }, 
+ 
 
             function (err, result) { 
                 var locationsmatched = result;
