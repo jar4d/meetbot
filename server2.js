@@ -62,8 +62,7 @@ db.collection('locations').aggregate([
             ]
         },
         "spherical": true,
-        "maxDistance": 600,
-        "distanceField": "distance",
+        "maxDistance": 6000,
         //"query": {
         //   "properties.drink": "coffee"
         //}
