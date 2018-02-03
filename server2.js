@@ -53,22 +53,27 @@ app.get('/*', function(req, res) {
 
 
 db.collection('locations').aggregate([
-    { geometry :
     { "$geoNear": {
         "near": {
             "type": "Point",
-               coordinates : [ parseFloat(data.longitude), parseFloat(data.latitude) ] 
+            "coordinates": [
+               -0.0875935,
+               51.53959
+            ]
         },
         "spherical": true,
-        "maxDistance": 1000,
+        "maxDistance": 600,
         "distanceField": "distance",
         "query": {
-                    //'properties.drink':data.drink, 
-                    //'properties.vibe':data.vibe
-                },
+           "properties.drink": "coffee"
+        }
     }}
-    }
 ],
+
+
+
+
+
 
 
             function (err, result) { 
