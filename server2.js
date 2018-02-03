@@ -28,6 +28,7 @@ app.get('/*', function(req, res) {
 
         var db = client.db('meetbot');
         if (err) throw err;
+
 /*
            db.collection('locations').find(
                                
@@ -48,26 +49,29 @@ app.get('/*', function(req, res) {
                     'properties.drink':data.drink, 
                     'properties.vibe':data.vibe
                 },
+
 */
 
-
-
-db.collection('locations').aggregate([
-    { "$geoNear": {
-        "near": {
-            "type": "Point",
-            "gemertry.coordinates": [
-               -0.0875935,
-               51.53959
-            ]
+        db.collection('locations').find(
+            "geometry": {
+                "$nearSphere": {
+                    "$geometry": {
+                        "type": "Point",
+                        "coordinates": [ parseFloat(data.longitude), parseFloat(data.latitude) ]
+                    },
+                    "$maxDistance": 1000
+                }
+            },
+            "properties.drink": data.drink,
+            "properties.vibe": data.vibe
+            
         },
-        "spherical": true,
-        "maxDistance": 6000,
-        //"query": {
-        //   "properties.drink": "coffee"
-        //}
-    }}
-],
+
+
+
+
+
+
 
 
 
