@@ -52,7 +52,7 @@ app.get('/*', function(req, res) {
 
 */
 
-        db.collection('locations').find(
+        db.collection('locations').find({
             "geometry": {
                 "$nearSphere": {
                     "$geometry": {
