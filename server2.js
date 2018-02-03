@@ -56,7 +56,7 @@ db.collection('locations').aggregate([
     { "$geoNear": {
         "near": {
             "type": "Point",
-            "coordinates": [
+            "gemertry.coordinates": [
                -0.0875935,
                51.53959
             ]
