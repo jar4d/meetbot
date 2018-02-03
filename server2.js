@@ -112,38 +112,17 @@ app.get('/*', function(req, res) {
                             
                             // If the item is null (none left) then the cursor is exhausted/empty and closed
                             if(item == null) {
-                                if(i = 0){
-                                    locationsmatched.toArray(function(err, items) {
-                                    //send stuff
-                                    jsonResponsestringify = JSON.stringify(jsonResponse);
-                                    res.send(jsonResponse); //not string
-                                    console.log("Sent jsonResponse: " + jsonResponsestringify);     
-                                    // Let's close the db
-                                    client.close();
-                                    });                                    
-                                }
-
-                                if(i > 0){
-                                    locationsmatched.toArray(function(err, items) {
-                                    //send stuff
-                                    jsonResponsestringify = JSON.stringify(jsonResponse);
-                                    res.send(jsonResponse); //not string
-                                    console.log("Sent jsonResponse: " + jsonResponsestringify);     
-                                    // Let's close the db
-                                    client.close();
-                                    });                                    
-                                }
-                            /*
                               // Show that the cursor is closed
                                 locationsmatched.toArray(function(err, items) {
                                 //send stuff
                                 jsonResponsestringify = JSON.stringify(jsonResponse);
                                 res.send(jsonResponse); //not string
+                                console.log("final i: " + i);     
                                 console.log("Sent jsonResponse: " + jsonResponsestringify);     
                                 // Let's close the db
                                 client.close();
                               });
-                            */
+
                             }else{
 
                             console.log("item.name"+ item.properties.name);
@@ -179,6 +158,7 @@ app.get('/*', function(req, res) {
 
                                 if(i<4){
                                     jsonResponse[0].attachment.payload.elements.push(elementsArray[i]);
+                                    console.log("loop i: " + i);       
                                     i = i+1;
                                 }
                             }
