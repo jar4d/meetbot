@@ -30,10 +30,6 @@ app.get('/*', function(req, res) {
         if (err) throw err;
 
            db.collection('locations').find(
-                {
-                    'properties.drink':data.drink, 
-                    'properties.vibe':data.vibe
-                },
                                
                {
                     geometry :
@@ -47,6 +43,11 @@ app.get('/*', function(req, res) {
                           }
                        }  
                },
+
+                {
+                    'properties.drink':data.drink, 
+                    'properties.vibe':data.vibe
+                },
  
 
             function (err, result) { 

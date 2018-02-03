@@ -28,7 +28,7 @@ mongo ds247077.mlab.com:47077/meetbot -u meetbotuser -p meetbot
 
 IMPORT A CSV FILE
 http://geojson.io/#map=12/51.5192/-0.0498
--- Delete this: {"type": "FeatureCollection","features": []}
+-- Delete this: {"type": "FeatureCollection","features": }
 
 -- in terminal:
 
@@ -53,3 +53,12 @@ QUERY IT: (note this is LONG, LAT - opposite to google maps)
        
        
        });
+
+
+
+START SERVER
+
+cd/meetbot
+forever cleanlogs //deletes log
+forever start -l forever.log -o out.log -e err.log server2.js
+https://expressjs.com/en/advanced/pm.html       
