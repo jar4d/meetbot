@@ -28,7 +28,7 @@ app.get('/*', function(req, res) {
 
         var db = client.db('meetbot');
         if (err) throw err;
-
+/*
            db.collection('locations').find(
                                
                {
@@ -48,7 +48,26 @@ app.get('/*', function(req, res) {
                     'properties.drink':data.drink, 
                     'properties.vibe':data.vibe
                 },
- 
+*/
+
+
+
+db.collection('locations').aggregate([
+    { "$geoNear": {
+        "near": {
+            "type": "Point",
+               coordinates : [ parseFloat(data.longitude), parseFloat(data.latitude) ] 
+        },
+        "spherical": true,
+        "maxDistance": 1000,
+        "distanceField": "distance",
+        "query": {
+                    'properties.drink':data.drink, 
+                    'properties.vibe':data.vibe
+                },
+    }}
+],
+
 
             function (err, result) { 
                 var locationsmatched = result;
