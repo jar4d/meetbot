@@ -63,8 +63,8 @@ db.collection('locations').aggregate([
         "maxDistance": 1000,
         "distanceField": "distance",
         "query": {
-                    'properties.drink':data.drink, 
-                    'properties.vibe':data.vibe
+                    //'properties.drink':data.drink, 
+                    //'properties.vibe':data.vibe
                 },
     }}
     }
