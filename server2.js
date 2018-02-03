@@ -53,6 +53,7 @@ app.get('/*', function(req, res) {
 
 
 db.collection('locations').aggregate([
+    { geometry :
     { "$geoNear": {
         "near": {
             "type": "Point",
@@ -66,6 +67,7 @@ db.collection('locations').aggregate([
                     'properties.vibe':data.vibe
                 },
     }}
+    }
 ],
 
 
