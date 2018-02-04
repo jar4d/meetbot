@@ -121,10 +121,11 @@ app.get('/*', function(req, res) {
                                 if(i == 0){
                                 console.log("final i ==0 " + i);    
                                 //send stuff
-                                jsonResponse.push({
+                                jsonResponse.push(
                                 {
                                 "text": "Oh no. We can't find you a place nearby.Why don't you send us a recommendation?"
                                 },
+                                {
                                     attachment:{
                                         type:"link",
                                         payload:{
