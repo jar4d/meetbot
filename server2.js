@@ -117,18 +117,24 @@ app.get('/*', function(req, res) {
                               // Show that the cursor is closed
                               
                                 locationsmatched.toArray(function(err, items) {
+
+                                if(i == 0){
+                                console.log("final i ==0 " + i);    
                                 //send stuff
                                 jsonResponsestringify = JSON.stringify(jsonResponse);
                                 res.send(jsonResponse); //not string
                                 console.log("final i: " + i);     
-                                console.log("Sent jsonResponse: " + jsonResponsestringify);     
-                                // Let's close the db
-                                if(i == 0){
-                                console.log("final i ==0 " + i);     
+                                console.log("Sent jsonResponse: " + jsonResponsestringify); 
                                 }
 
                                 if(i > 0){
-                                console.log("final i >0 " + i);     
+                                console.log("final i >0 " + i);  
+                                //send stuff
+                                jsonResponsestringify = JSON.stringify(jsonResponse);
+                                res.send(jsonResponse); //not string
+                                console.log("final i: " + i);     
+                                console.log("Sent jsonResponse: " + jsonResponsestringify); 
+
                                 }
 
 
