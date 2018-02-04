@@ -122,7 +122,7 @@ app.get('/*', function(req, res) {
                                 console.log("final i ==0 " + i);    
                                 //send stuff
                                 jsonResponse.push(
-                                {"text": "Oh no. No place to go yet. How about helping us find one? Go on, be a darl. Send your recommendations to jared@thinkplanthrive.com"}
+                                {"text": "Oh no. We can't find you a place nearby.Why don't you send us a recommendation? mailto:jared@thinkplanthrive.com"}
                                 );
                                 jsonResponsestringify = JSON.stringify(jsonResponse);
                                 res.send(jsonResponse); //not string
