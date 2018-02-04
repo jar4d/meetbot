@@ -111,19 +111,37 @@ app.get('/*', function(req, res) {
                           locationsmatched.each(function(err, item) {
                             
                             // If the item is null (none left) then the cursor is exhausted/empty and closed
-                            if(item == null) {
+                            if(item == null && i == 0) {
                               // Show that the cursor is closed
+                              
                                 locationsmatched.toArray(function(err, items) {
                                 //send stuff
                                 jsonResponsestringify = JSON.stringify(jsonResponse);
                                 res.send(jsonResponse); //not string
                                 console.log("final i: " + i);     
-                                console.log("Sent jsonResponse: " + jsonResponsestringify);     
+                                console.log("Sent jsonResponse i = 0: " + jsonResponsestringify);     
                                 // Let's close the db
                                 client.close();
                               });
 
-                            }else{
+                            }
+
+                            if(item == null && i > 0) {
+                              // Show that the cursor is closed
+                              
+                                locationsmatched.toArray(function(err, items) {
+                                //send stuff
+                                jsonResponsestringify = JSON.stringify(jsonResponse);
+                                res.send(jsonResponse); //not string
+                                console.log("final i: " + i);     
+                                console.log("Sent jsonResponse i > 0 : " + jsonResponsestringify);     
+                                // Let's close the db
+                                client.close();
+                              });
+
+                            }
+
+                            else{
 
                             console.log("item.name"+ item.properties.name);
 
