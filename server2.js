@@ -121,6 +121,9 @@ app.get('/*', function(req, res) {
                                 if(i == 0){
                                 console.log("final i ==0 " + i);    
                                 //send stuff
+                                jsonResponse.push(
+                                {"text": "Oh no. No place to go yet. How about helping us find one? Go on, be a darl. Send your recommendations to jared@thinkplanthrive.com"}
+                                );
                                 jsonResponsestringify = JSON.stringify(jsonResponse);
                                 res.send(jsonResponse); //not string
                                 console.log("final i: " + i);     
