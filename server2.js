@@ -123,6 +123,15 @@ app.get('/*', function(req, res) {
                                 console.log("final i: " + i);     
                                 console.log("Sent jsonResponse: " + jsonResponsestringify);     
                                 // Let's close the db
+                                if(i == 0){
+                                console.log("final i ==0 " + i);     
+                                }
+
+                                if(i > 0){
+                                console.log("final i >0 " + i);     
+                                }
+
+
                                 client.close();
                               });
 
