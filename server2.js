@@ -127,12 +127,12 @@ app.get('/*', function(req, res) {
                                         type:"template",
                                         "payload":{
                                                 "template_type":"button",
-                                                "text":"Oh no. We can't find you a place nearby. Why don't you send us a recommendation?",
+                                                "text":"😪 Oh no. We don't have anywhere nearby listed yet. If you know somewhere, how about sending us a recommendation?",
                                                 "buttons":[
                                                   {
                                                     "type":"web_url",
-                                                    "url":"https://www.messenger.com",
-                                                    "title":"Visit Messenger"
+                                                    "url":"mailto:jared@thinkplanthrive.com?subject=I know this little place...",
+                                                    "title":"Send some love."
                                                   }
                                                 ]
                                         } 
