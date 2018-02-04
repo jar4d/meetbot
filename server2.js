@@ -81,8 +81,9 @@ app.get('/*', function(req, res) {
 
             function (err, result) { 
                 var locationsmatched = result;
+                var locationsmatchedcount = locationsmatched.count();
                 if (err) throw err;
-                console.log("locationsmatched: "+ locationsmatched.length);
+                console.log("locationsmatched: "+ locationsmatchedcount);
                     
                         var elementsArray = [];
                         jsonResponse = [];
@@ -110,18 +111,9 @@ app.get('/*', function(req, res) {
                           // Execute the each command, triggers for each document
                           locationsmatched.each(function(err, item) {
                             
-                            // If the item is null (none left) then the cursor is exhausted/empty and closed
-                            if(item == null && i == 0) {
-                              // Show that the cursor is closed
-                                
-                                console.log("Sent jsonResponse i = 0: ");     
-                                // Let's close the db
-                                client.close();
+                            // If the item is null (none left) then the cursor is exhausted/empty and close
 
-
-                            }
-
-                            if(item == null && i > 0) {
+                            if(item == null) {
                               // Show that the cursor is closed
                               
                                 locationsmatched.toArray(function(err, items) {
@@ -129,7 +121,7 @@ app.get('/*', function(req, res) {
                                 jsonResponsestringify = JSON.stringify(jsonResponse);
                                 res.send(jsonResponse); //not string
                                 console.log("final i: " + i);     
-                                console.log("Sent jsonResponse i > 0 : " + jsonResponsestringify);     
+                                console.log("Sent jsonResponse: " + jsonResponsestringify);     
                                 // Let's close the db
                                 client.close();
                               });
