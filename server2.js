@@ -123,14 +123,19 @@ app.get('/*', function(req, res) {
                                 //send stuff
                                 jsonResponse.push(
                                 {
-                                "text": "Oh no. We can't find you a place nearby.Why don't you send us a recommendation?"
-                                },
-                                {
                                     attachment:{
-                                        type:"link",
-                                        payload:{
-                                            "url":"mailto:jared@thinkplanthrive.com" 
-                                        }
+                                        type:"template",
+                                        "payload":{
+                                                "template_type":"button",
+                                                "text":"Oh no. We can't find you a place nearby. Why don't you send us a recommendation?",
+                                                "buttons":[
+                                                  {
+                                                    "type":"web_url",
+                                                    "url":"https://www.messenger.com",
+                                                    "title":"Visit Messenger"
+                                                  }
+                                                ]
+                                        } 
                                     }
                                 });
 
