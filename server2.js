@@ -129,7 +129,8 @@ app.get('/*', function(req, res) {
                                     attachment:{
                                         type:"link",
                                         payload:{
-                                            "url":"mailto:jared@thinkplanthrive.com"                                        }
+                                            "url":"mailto:jared@thinkplanthrive.com" 
+                                        }
                                     }
                                 });
 
