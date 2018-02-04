@@ -81,7 +81,7 @@ app.get('/*', function(req, res) {
 
             function (err, result) { 
                 var locationsmatched = result;
-                var locationsmatchedcount = locationsmatched.length();
+                var locationsmatchedcount = locationsmatched.length;
                 if (err) throw err;
                 console.log("locationsmatched: "+ locationsmatchedcount);
                     
